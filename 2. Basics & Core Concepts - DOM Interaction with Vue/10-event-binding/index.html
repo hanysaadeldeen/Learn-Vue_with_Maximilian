@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Vue Events</h1>
+  </header>
+  <section id="events">
+    <h2>Events in Action</h2>
+    <button @click="add(5)">Add</button>
+    <button v-on:click="remove(4)">Remove</button>
+    <p>Result: {{ counter }}</p>
+    <!-- <input type="text" @:change="change"> -->
+    <!-- <input type="text" v-on:input="change"> -->
+    <input type="text" v-on:input="change($event,'mohamed')">
+    <p>Your name is : {{ output }}</p>
+  </section>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js" defer></script>
+</body>
+
+</html>
