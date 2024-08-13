@@ -9,17 +9,20 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body id="About_Me">
   <header>
-    <h1>Vue Course Goals</h1>
+    <h2>{{My_NAME}}</h2>
   </header>
   <section id="user-goal">
-    <h2>My Course Goal</h2>
-    <!-- <p v-html="addGoal()"></p> -->
-    <p v-for="goal in Goals">{{goal}}</p>
-    <p>{{courseGoal}} <a v-bind:href="Vuehref" target="_blank">About vue</a></p>
-    <p>{{addGoal()}}</p>
-    <button class="button" v-on:click="addGoal">button</button>
+
+    <h2>{{MY_AGE}}</h2>
+    <h2>{{ageAfter()}}</h2>
+    <span>FAVORITE NUMBER:{{randomNumber()}}</span>
+    <div class="img-cover">
+      <img v-bind:src=randomImage alt="Random Image" srcset="">
+    </div>
+    <!-- <input type="text" v-model="My_NAME" placeholder="Your Name"> -->
+    <input type="text" v-bind:value="My_NAME" placeholder="Your Name">
   </section>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="app.js" defer></script>
