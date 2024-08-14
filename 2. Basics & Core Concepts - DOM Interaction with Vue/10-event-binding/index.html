@@ -22,8 +22,14 @@
     <p>Result: {{ counter }}</p>
     <!-- <input type="text" @:change="change"> -->
     <!-- <input type="text" v-on:input="change"> -->
-    <input type="text" v-on:input="change($event,'mohamed')">
-    <p>Your name is : {{ output }}</p>
+    <input type="text" v-on:input="change($event,'mohamed')" v-on:keyup.enter="confirmkeyUp()">
+    <p>Your name is : {{ confirmName }}</p>
+
+    <form @:submit.prevent="onSubmit">
+      <input type="text">
+      <button>Sign up</button>
+    </form>
+
   </section>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="app.js" defer></script>

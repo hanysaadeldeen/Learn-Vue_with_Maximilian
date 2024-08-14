@@ -1,11 +1,15 @@
-const app = Vue.createApp({
+const myApp = Vue.createApp({
   data() {
     return {
       counter: 0,
       output: "",
+      confirmName: "",
     };
   },
   methods: {
+    confirmkeyUp() {
+      this.confirmName = this.output;
+    },
     add(num) {
       this.counter += num;
     },
@@ -15,7 +19,11 @@ const app = Vue.createApp({
     change(event, lastName) {
       this.output = event.target.value + " " + lastName;
     },
+    onSubmit(event) {
+      // event.preventDefault();
+      alert("submited");
+    },
   },
 });
 
-app.mount("#events");
+myApp.mount("#events");
