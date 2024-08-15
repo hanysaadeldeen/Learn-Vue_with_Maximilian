@@ -4,6 +4,8 @@ const app = Vue.createApp({
       alertContent: "hello there this is aleart",
       userInput: "",
       confirm: "",
+      inputText: "",
+      firstName: "",
     };
   },
   methods: {
@@ -15,6 +17,12 @@ const app = Vue.createApp({
     },
     confirmkeyUp() {
       this.confirm = this.userInput;
+    },
+    inputText() {
+      if (this.firstName === "") {
+        return "";
+      }
+      return this.firstName + " " + "mohamed";
     },
   },
 });

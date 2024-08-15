@@ -27,6 +27,11 @@
     <!-- 3) Repeat 2) but only output the entered value if the ENTER key was pressed -->
     <input v-on:keydown="getInputvalue" v-on:keyup.enter="confirmkeyUp" type="text" />
     <p>OUTPUT:{{confirm}}</p>
+
+    <!-- <input type="text" v-model="inputText">
+    <p>{{inputText}}</p> -->
+    <input type="text" v-model="fullName">
+    <p>output: {{inputText}}</p>
   </section>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="app.js" defer></script>
