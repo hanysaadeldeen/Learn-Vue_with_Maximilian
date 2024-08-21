@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #4fc08d;
+  color: white;
+  text-align: center;
+}
+
+button {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.558);
+  padding: 10px 14px;
+}
+
+#styling {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+
+.user1 {
+  background-color: lightgreen;
+  font-weight: bold;
+  color: white;
+  padding: 10px 15px;
+}
+
+.user2 {
+  background-color: rgb(238, 208, 144);
+  font-weight: bold;
+  color: white;
+  padding: 10px 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

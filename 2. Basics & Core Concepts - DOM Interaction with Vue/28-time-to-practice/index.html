@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vue Basics</title>
+  <title>Vue Basics Styling Problem</title>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/vue@next" defer></script>
@@ -13,19 +13,22 @@
 
 <body>
   <header>
-    <h1>Vue Dynamic Styling</h1>
+    <h1>Styling Problem </h1>
   </header>
   <section id="styling">
+    <input type="text" v-model="inptuData">
 
-    <div class="demo" :class="boxAClasses" @click="boxSelected('a')">
+    <p :class="[CastumParagraph,ControlDisplay]">
+      style me!
+    </p>
+    <button @click="toggleParagraph()">Toggle Paragraph</button>
 
-
-      {{boxA}}</div>
-    <div class="demo" :class="boxB?'active':'active2'" @click="boxSelected('b')">{{boxB}}</div>
-    <div class="demo" :style="{backgroundColor:boxC?'boxAClasses':'yellow'}" @click="boxSelected('c')">{{boxC}}</div>
-
-    <p>{{boxAClasses}}</p>
+    <input type="text" v-model="getBackground">
+    <p :style="{backgroundColor:getBackground}">Style me Inline!</p>
+    <p></p>
   </section>
+
+
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </body>
 
