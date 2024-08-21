@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+  <header>
+    <h1>Vue Course Goals</h1>
+  </header>
+  <section id="user-goals">
+    <h2>My course goals</h2>
+    <input type="text" v-model="GetGoal" />
+    <button @click="AddGoal">Add Goal</button>
+
+    <p v-if="filteredGoals">
+      No goals have been added yet - please start adding some!
+    </p>
+    <ul v-else>
+      <li v-for="(goal,index) in Goals" :key="goal" @click="remoeGoad(goal)">
+        {{index+1}} {{goal}}
+        <input type="text" @click.stop>
+      </li>
+    </ul>
+
+
+    <!-- <ul>
+      <li v-for="num in 10">{{num}}</li>
+    </ul> -->
+    <!-- <ul v-for="value in
+      [{name:'pc',tool:'keyboard'},
+      {name:'pc2',tool:'keyboard2'}]">
+      <li>
+        this {{ value}}
+      </li>
+    </ul> -->
+
+  </section>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js" defer></script>
+</body>
+
+</html>
