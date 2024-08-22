@@ -35,7 +35,7 @@ section {
 
 .healthbar__value {
   background-color: #00a876;
-  /* width: 60%; */
+  width: 60%;
   height: 100%;
 }
 
@@ -104,16 +104,20 @@ button:disabled {
 
 .log--player {
   color: #7700ff;
+  margin: 0 10px;
 }
 
 .log--monster {
   color: #da8d00;
+  margin: 0 10px;
 }
 
 .log--damage {
   color: red;
+  margin: 0 10px;
 }
 
 .log--heal {
   color: green;
+  margin: 0 10px;
 }

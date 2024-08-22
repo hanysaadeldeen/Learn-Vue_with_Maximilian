@@ -18,7 +18,7 @@
     <section id="monster" class="container">
       <h2>Monster Health</h2>
       <div v-if="widthMoster>0" class="healthbar">
-        <div class="healthbar__value" :style="{ width: widthMoster + '%' }"></div>
+        <div class="healthbar__value" :style="widthMosterValue"></div>
       </div>
       <p v-if="widthMoster===0">Monster Fail </p>
       <p v-if="widthMoster>0&&yourWidth===0">Monster win </p>
@@ -26,20 +26,38 @@
     <section id="player" class="container">
       <h2>Your Health</h2>
       <div v-if="yourWidth>0" class="healthbar">
-        <div class="healthbar__value" :style="{width: yourWidth +'%'}"></div>
+        <div class="healthbar__value" :style="yourwidthValue"></div>
       </div>
       <p v-if="yourWidth===0">you are Fail </p>
       <p v-if="yourWidth>0&&widthMoster===0">You Are win </p>
     </section>
+    <section class="container" v-if="yourWidth===0 || widthMoster===0">
+      <h2>Game Over !</h2>
+      <button @click="startGame()">Start Game Again!</button>
+    </section>
+
     <section id="controls">
       <button @click="Control('ATTACK')">ATTACK</button>
-      <button @click="Control('SPECIAL')">SPECIAL ATTACK</button>
+      <button :disabled="ControlSpecialAttack" @click="Control('SPECIAL')">SPECIAL ATTACK</button>
       <button @click="Control('HEAL')">HEAL</button>
       <button @click="Control('SURRENDER')">SURRENDER</button>
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
-      <ul></ul>
+      <ul>
+        <li v-for="logMessage in logMessages"
+          :key="logMessage.actionBy + logMessage.actionType + logMessage.actionValue">
+          <!-- before style  -->
+          <!-- <span>{{ logMessage.actionBy }} / {{ logMessage.actionType }} / {{ logMessage.actionValue }}</span> -->
+          <!-- after style -->
+          <span :class="{'log--player':logMessage.actionBy==='player',
+                      'log--monster' :logMessage.actionBy==='Monster'
+      }">{{logMessage.actionBy}}</span>
+          <span :class="{'log--damage':logMessage.actionType==='Attack' || logMessage.actionType==='Special Attack' ,
+            'log--heal':logMessage.actionType==='heal'}">{{logMessage.actionType}}</span>
+          <span>by {{logMessage.actionValue}}</span>
+        </li>
+      </ul>
     </section>
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
