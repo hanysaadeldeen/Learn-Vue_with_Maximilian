@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+  <header>
+    <h1>Monster Slayer</h1>
+  </header>
+  <div id="game">
+    <section id="monster" class="container">
+      <h2>Monster Health</h2>
+      <div v-if="widthMoster>0" class="healthbar">
+        <div class="healthbar__value" :style="{ width: widthMoster + '%' }"></div>
+      </div>
+      <p v-if="widthMoster===0">Monster Fail </p>
+      <p v-if="widthMoster>0&&yourWidth===0">Monster win </p>
+    </section>
+    <section id="player" class="container">
+      <h2>Your Health</h2>
+      <div v-if="yourWidth>0" class="healthbar">
+        <div class="healthbar__value" :style="{width: yourWidth +'%'}"></div>
+      </div>
+      <p v-if="yourWidth===0">you are Fail </p>
+      <p v-if="yourWidth>0&&widthMoster===0">You Are win </p>
+    </section>
+    <section id="controls">
+      <button @click="Control('ATTACK')">ATTACK</button>
+      <button @click="Control('SPECIAL')">SPECIAL ATTACK</button>
+      <button @click="Control('HEAL')">HEAL</button>
+      <button @click="Control('SURRENDER')">SURRENDER</button>
+    </section>
+    <section id="log" class="container">
+      <h2>Battle Log</h2>
+      <ul></ul>
+    </section>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js" defer></script>
+</body>
+
+</html>
