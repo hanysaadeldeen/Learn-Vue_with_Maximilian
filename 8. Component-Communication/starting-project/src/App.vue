@@ -3,25 +3,32 @@
     <h1>Hello this is the first project with cli</h1>
   </header>
   <ul>
-    <!-- <Friend-Contact data="{{friends}}"></Friend-Contact> -->
     <Friend-Contact
+      v-for="friend in friends"
+      :key="friend.id"
+      :id="friend.id"
+      :name="friend.name"
+      :age="friend.age"
+      :phone-number="friend.phone"
+      :email-address="friend.email"
+      :is-favorite="friend.favorite"
+    >
+    </Friend-Contact>
+    <!-- <Friend-Contact
       id="2"
       name="ahmed"
       age="233"
       phone-number="1232344124"
       email-address="email222@gmail.com"
-      is-favorite="1"
-      toggle-favorite="toggleFavorite"
-    ></Friend-Contact>
-    <Friend-Contact
+    ></Friend-Contact> -->
+    <!-- <Friend-Contact
       id="1"
       name="mohamed"
       age="2"
       phone-number="0109345"
       email-address="email@gmail.com"
-      is-favorite="0"
-      toggle-favorite="toggleFavorite"
-    ></Friend-Contact>
+      :is-favorite="false"
+    ></Friend-Contact> -->
   </ul>
 </template>
 
@@ -29,35 +36,26 @@
 export default {
   data() {
     return {
-      // friends: [
-      //   {
-      //     id: 1,
-      //     name: "mohamed",
-      //     age: 12,
-      //     phone: "1232344124",
-      //     email: "email@gmail.com",
-      //   },
-      //   {
-      //     id: 2,
-      //     name: "hany",
-      //     age: 12,
-      //     phone: "0000999",
-      //     email: "email22@gmail.com",
-      //   },
-      // ],
+      friends: [
+        {
+          id: 1,
+          name: "mohamed",
+          age: 12,
+          phone: "1232344124",
+          email: "email@gmail.com",
+        },
+        {
+          id: 2,
+          name: "hany",
+          age: 12,
+          phone: "0000999",
+          email: "email22@gmail.com",
+          favorite: true,
+        },
+      ],
     };
   },
-  methods: {
-    toggleFavorite() {
-      console.log("helo");
-
-      // if (this.isFavorite === "1") {
-      //   this.isFavorite === "0";
-      // } else {
-      //   this.isFavorite === "1";
-      // }
-    },
-  },
+  methods: {},
 };
 </script>
 
