@@ -2,7 +2,10 @@
   <header>
     <h1>Hello this is the first project with cli</h1>
   </header>
+
   <ul>
+    <Form-Contact @Getinputs-Data="UpdateFriendsdata"></Form-Contact>
+
     <Friend-Contact
       v-for="friend in friends"
       :key="friend.id"
@@ -12,23 +15,10 @@
       :phone-number="friend.phone"
       :email-address="friend.email"
       :is-favorite="friend.favorite"
+      @toggle-favorite="toggleFavoriteStatus"
+      @Delete-favorite="DeleteFriend"
     >
     </Friend-Contact>
-    <!-- <Friend-Contact
-      id="2"
-      name="ahmed"
-      age="233"
-      phone-number="1232344124"
-      email-address="email222@gmail.com"
-    ></Friend-Contact> -->
-    <!-- <Friend-Contact
-      id="1"
-      name="mohamed"
-      age="2"
-      phone-number="0109345"
-      email-address="email@gmail.com"
-      :is-favorite="false"
-    ></Friend-Contact> -->
   </ul>
 </template>
 
@@ -42,6 +32,7 @@ export default {
           name: "mohamed",
           age: 12,
           phone: "1232344124",
+          favorite: false,
           email: "email@gmail.com",
         },
         {
@@ -49,13 +40,25 @@ export default {
           name: "hany",
           age: 12,
           phone: "0000999",
-          email: "email22@gmail.com",
           favorite: true,
+          email: "email22@gmail.com",
         },
       ],
     };
   },
-  methods: {},
+  methods: {
+    toggleFavoriteStatus(friendId) {
+      const GetFriendId = this.friends.find((friend) => friend.id === friendId);
+      GetFriendId.favorite = !GetFriendId.favorite;
+    },
+    UpdateFriendsdata(inputs) {
+      console.log(inputs);
+      this.friends.unshift(inputs);
+    },
+    DeleteFriend(id) {
+      this.friends = this.friends.filter((friend) => friend.id !== id);
+    },
+  },
 };
 </script>
 
@@ -91,7 +94,22 @@ header {
   list-style: none;
 }
 
-#app li {
+form input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+form div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+form div input {
+  width: fit-content;
+}
+#app li,
+form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
