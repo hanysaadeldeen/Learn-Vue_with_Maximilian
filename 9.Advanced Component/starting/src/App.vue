@@ -5,7 +5,10 @@
     <button @click="whitckOne('Author-Com')">Author Com</button>
   </section>
 
-  <component :is="visible"> </component>
+  <keep-alive>
+    <component :is="visible"> </component>
+  </keep-alive>
+
   <!-- <Quote-message :props="testProps" v-if="visible === 'Auote'">
     <template v-slot:title>
       <h1>{{ quote }}</h1>
