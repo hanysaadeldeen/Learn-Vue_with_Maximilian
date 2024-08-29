@@ -1,13 +1,18 @@
 <template>
   <form @submit.prevent="submitForm">
-    <div class="form-control">
+    <div
+      class="form-control"
+      :class="{ invalid: userNameValidity === 'invalid' }"
+    >
       <label for="user-name">Your Name</label>
       <input
         id="user-name"
         v-model.trim="userName"
         name="user-name"
         type="text"
+        @blur="validateInput"
       />
+      <p v-if="userNameValidity === 'invalid'">Please enter a valid name!</p>
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
@@ -87,6 +92,18 @@
         <label for="how-other">Other</label>
       </div>
     </div>
+    <div class="form-control">
+      <rating-control v-model="rating"></rating-control>
+    </div>
+    <div class="form-control">
+      <label for="terms">Agree to terms of use?</label>
+      <input
+        id="terms"
+        type="checkbox"
+        value="checkAgree"
+        v-model="agreeCheck"
+      />
+    </div>
     <div>
       <button>Save Data</button>
     </div>
@@ -94,6 +111,7 @@
 </template>
 
 <script>
+import RatingControl from './RatingControl.vue';
 export default {
   data() {
     return {
@@ -102,22 +120,40 @@ export default {
       referrer: 'news',
       saveCheck: [],
       how: null,
+      agreeCheck: false,
+      userNameValidity: 'pending',
+      rating: null,
     };
   },
+
   methods: {
     submitForm() {
-      // console.log('user-Name: ' + this.userName);
-      // this.userName = '';
-      console.log(this.saveCheck);
-
-      console.log('how');
-      console.log(this.how);
+      console.log(this.rating);
+      this.rating = null;
     },
+    validateInput() {
+      if (this.userName === '') {
+        this.userNameValidity = 'invalid';
+      } else {
+        this.userNameValidity = 'valid';
+      }
+    },
+  },
+
+  components: {
+    RatingControl,
   },
 };
 </script>
 
 <style scoped>
+.invalid input {
+  border-color: red;
+}
+
+.invalid label {
+  color: red;
+}
 form {
   margin: 2rem auto;
   max-width: 40rem;
