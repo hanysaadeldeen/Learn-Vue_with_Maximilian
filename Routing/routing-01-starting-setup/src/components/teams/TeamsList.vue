@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+  <router-view> </router-view>
   <ul>
     <teams-item
       v-for="team in teams"
