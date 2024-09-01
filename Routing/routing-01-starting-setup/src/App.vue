@@ -1,21 +1,16 @@
 <template>
   <the-navigation></the-navigation>
   <main>
-    <!-- <component :is="activePage"></component> -->
     <router-view></router-view>
   </main>
 </template>
 
 <script>
-// import TeamsList from './components/teams/TeamsList.vue';
-// import UsersList from './components/users/UsersList.vue';
 import TheNavigation from './components/nav/TheNavigation.vue';
 
 export default {
   components: {
     TheNavigation,
-    // TeamsList,
-    // UsersList,
   },
   data() {
     return {
@@ -34,6 +29,7 @@ export default {
       ],
     };
   },
+
   provide() {
     return {
       teams: this.teams,
@@ -41,8 +37,8 @@ export default {
     };
   },
   methods: {
-    // setActivePage(page) {
-    //   this.activePage = page;
+    // ChangePage() {
+    //   this.$router.push('/teams');
     // },
   },
 };
