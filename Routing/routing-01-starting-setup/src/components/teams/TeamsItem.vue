@@ -14,7 +14,7 @@ export default {
     teamMemeberLink() {
       // return `/teams/${this.id}`;
       return {
-        name: 'team-memeber',
+        name: 'team-member',
         params: { id: this.id },
         query: {
           sort: 'yes',

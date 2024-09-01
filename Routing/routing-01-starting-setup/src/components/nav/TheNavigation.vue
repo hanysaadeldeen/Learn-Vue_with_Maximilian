@@ -6,7 +6,7 @@
           <router-link to="/teams"> Teams </router-link>
         </li>
         <li>
-          <router-link to="/users"> Users </router-link>
+          <router-link :to="usersPage.path"> Users </router-link>
         </li>
       </ul>
     </nav>
@@ -16,6 +16,11 @@
 <script>
 export default {
   methods: {},
+  computed: {
+    usersPage() {
+      return { name: 'users', path: '/users' };
+    },
+  },
 };
 </script>
 
