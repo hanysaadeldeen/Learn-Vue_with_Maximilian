@@ -13,7 +13,14 @@ export default {
   computed: {
     teamMemeberLink() {
       // return `/teams/${this.id}`;
-      return { name: 'team-memeber', params: { id: this.id } };
+      return {
+        name: 'team-memeber',
+        params: { id: this.id },
+        query: {
+          sort: 'yes',
+          price: 'ATZ',
+        },
+      };
     },
   },
 };
