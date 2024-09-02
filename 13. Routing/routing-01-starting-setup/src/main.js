@@ -49,10 +49,13 @@ const router = createRouter({
     return { top: 0 };
   },
 });
-router.beforeEach(function (to, from, next) {
-  // console.log('global beforeEach');
-  // console.log(to, from);
-  next();
+// router.beforeEach(function (to, from, next) {
+
+//   next();
+// });
+
+router.afterEach((to, from) => {
+  console.log(to, from);
 });
 
 const app = createApp(App);

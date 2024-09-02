@@ -45,8 +45,6 @@ export default {
     },
   },
   created() {
-    console.log(this.$route.query.price);
-
     this.updateContentPage(this.id);
   },
 };
