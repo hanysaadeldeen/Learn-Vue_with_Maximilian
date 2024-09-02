@@ -12,8 +12,7 @@
 </template>
 
 <script>
-import UserItem from './UserItem.vue';
-
+import UserItem from '../components/users/UserItem.vue';
 export default {
   components: {
     UserItem,
@@ -37,7 +36,6 @@ export default {
   beforeRouteLeave(to, from, next) {
     console.log('Users List Cmp beforeRouteLeave');
     console.log(to, from);
-
     if (this.changesSaved) {
       next();
     } else {
