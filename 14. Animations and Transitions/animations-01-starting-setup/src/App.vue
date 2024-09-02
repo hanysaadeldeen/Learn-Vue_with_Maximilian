@@ -10,18 +10,22 @@
     </transition>
     <button @click="toogleParagraph">Animate</button>
   </div>
-  <div class="container">
-    <transition name="helloP">
-      <p v-if="paraIsVisible2">Add some more text</p>
+  <div class="container" mode="out-in ">
+    <transition name="fade-button">
+      <button @click="toggleUsers(true)" v-if="!usersAreVisible">
+        Show Users
+      </button>
+      <button @click="toggleUsers(false)" v-else>Hide Users</button>
     </transition>
-    <button @click="toogleParagraph2">Animate22</button>
   </div>
-  <base-modal @closev="hideDialog" v-if="dialogIsVisible">
+
+  <base-modal @close="hideDialog" :open="dialogIsVisible">
     <p>This is a test dialog!</p>
-    <button @click="hideDialog">Close it!</button>
+    <button @click="hideDialog()">Close it!</button>
   </base-modal>
+
   <div class="container">
-    <button @click="showDialog">Show Dialog</button>
+    <button @click="showDialog()">Show Dialog</button>
   </div>
 </template>
 
@@ -32,15 +36,16 @@ export default {
       dialogIsVisible: false,
       checkAnimate: false,
       paraIsVisible: false,
-      paraIsVisible2: false,
+
+      usersAreVisible: false,
     };
   },
   methods: {
     toogleParagraph() {
       this.paraIsVisible = !this.paraIsVisible;
     },
-    toogleParagraph2() {
-      this.paraIsVisible2 = !this.paraIsVisible2;
+    toggleUsers(value) {
+      this.usersAreVisible = value;
     },
     showDialog() {
       this.dialogIsVisible = true;
@@ -65,6 +70,7 @@ html {
 body {
   margin: 0;
 }
+/*! test first name */
 .helloP-enter-active {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
@@ -72,34 +78,34 @@ body {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
 
-.v-enter-from {
-  /* opacity: 0;
-  transform: translateY(-50px); */
-}
+/* for global one */
 .v-enter-active {
   /* transition: all 0.3s ease-in-out; */
   animation: animateTransition 0.3s ease-in-out forwards;
-}
-.v-enter-to {
-  /* opacity: 1;
-  transform: translateY(0); */
-}
-
-.v-leave-from {
-  /* opacity: 1;
-  transform: translateY(0); */
 }
 .v-leave-active {
   /* transition: all 0.3s ease-in-out; */
   animation: animateTransition 0.3s ease-in-out forwards;
 }
-.v-leave-to {
-  /* opacity: 0;
-  transform: translateY(-50px); */
-}
 .animate {
   background-color: #cc00ff !important;
   animation: animateTransition 0.3s ease-in-out forwards;
+}
+
+/*button for transition */
+.fade-button-enter-from,
+.fade-button-leave-to {
+  opacity: 0;
+}
+.fade-button.v-enter-active {
+  animation: animateTransition 0.3s ease-in-out forwards;
+}
+.fade-button.v-leave-active {
+  animation: animateTransition 0.3s ease-in-out forwards;
+}
+.fade-button.enter-to,
+.fade-button.leave-from {
+  opacity: 1;
 }
 
 @keyframes animateTransition {
