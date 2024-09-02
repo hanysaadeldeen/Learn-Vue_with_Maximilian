@@ -3,6 +3,13 @@
     <div class="block" :class="{ animate: checkAnimate }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
+
+  <div class="container">
+    <transition>
+      <p v-if="paraIsVisible">this si only sometimes visible..</p>
+    </transition>
+    <button @click="toogleParagraph">Animate</button>
+  </div>
   <base-modal @closev="hideDialog" v-if="dialogIsVisible">
     <p>This is a test dialog!</p>
     <button @click="hideDialog">Close it!</button>
@@ -15,9 +22,16 @@
 <script>
 export default {
   data() {
-    return { dialogIsVisible: false, checkAnimate: false };
+    return {
+      dialogIsVisible: false,
+      checkAnimate: false,
+      paraIsVisible: false,
+    };
   },
   methods: {
+    toogleParagraph() {
+      this.paraIsVisible = !this.paraIsVisible;
+    },
     showDialog() {
       this.dialogIsVisible = true;
     },
@@ -43,8 +57,7 @@ body {
 }
 .animate {
   background-color: #cc00ff !important;
-
-  animation: animateTransition 0.3s ease-in-out;
+  animation: animateTransition 0.3s ease-in-out forwards;
 }
 
 @keyframes animateTransition {
