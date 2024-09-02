@@ -1,9 +1,11 @@
 <template>
+  <!-- box for style -->
   <div class="container">
     <div class="block" :class="{ animate: checkAnimate }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
 
+  <!-- transition events -->
   <div class="container">
     <transition
       name="pare"
@@ -12,12 +14,16 @@
       @enter="enter"
       @after-enter="afterEnter"
       @after-leave="afterLeave"
+      @leave="leave"
+      @enter-cancelled="enterCancelled"
+      @leave-cancelled="leaveCancelled"
     >
       <p v-if="paraIsVisible">this si only sometimes visible..</p>
     </transition>
     <button @click="toogleParagraph">Animate</button>
   </div>
 
+  <!-- buttons -->
   <div class="container" mode="out-in ">
     <transition name="fade-button">
       <button @click="toggleUsers(true)" v-if="!usersAreVisible">
@@ -27,11 +33,11 @@
     </transition>
   </div>
 
+  <!-- for dialog -->
   <base-modal @close="hideDialog" :open="dialogIsVisible">
     <p>This is a test dialog!</p>
     <button @click="hideDialog()">Close it!</button>
   </base-modal>
-
   <div class="container">
     <button @click="showDialog()">Show Dialog</button>
   </div>
@@ -44,31 +50,64 @@ export default {
       dialogIsVisible: false,
       checkAnimate: false,
       paraIsVisible: false,
-
       usersAreVisible: false,
+
+      intervalLeave: null,
+      intervalEnter: null,
     };
   },
   methods: {
-    beforeEnter() {
+    beforeEnter(el) {
       console.log('beforeEnter');
+      el.style.opacity = 0;
     },
-    beforeLeave() {
-      console.log('beforeLeave');
-    },
-
-    enter(el) {
+    enter(el, done) {
       console.log(el);
       console.log('enter');
+      let round = 1;
+      this.intervalEnter = setInterval(() => {
+        el.style.opacity = round * 0.01;
+        round++;
+        if (round > 100) {
+          clearInterval(this.intervalEnter);
+          done();
+        }
+      }, 20);
     },
     afterEnter() {
       console.log('after Enter');
     },
+    beforeLeave(el) {
+      console.log('beforeLeave');
+      el.style.opacity = 1;
+    },
+    leave(el, done) {
+      console.log('leave');
+      let round = 1;
+      this.intervalLeave = setInterval(() => {
+        el.style.opacity = 1 - round * 0.01;
+        round++;
+        if (round > 100) {
+          clearInterval(this.intervalLeave);
+          done();
+        }
+      }, 20);
+    },
     afterLeave() {
       console.log('after leave');
     },
+
+    enterCancelled() {
+      clearInterval(this.intervalEnter);
+    },
+    leaveCancelled() {
+      clearInterval(this.intervalLeave);
+    },
+
     toogleParagraph() {
       this.paraIsVisible = !this.paraIsVisible;
     },
+
     toggleUsers(value) {
       this.usersAreVisible = value;
     },
@@ -95,42 +134,29 @@ html {
 body {
   margin: 0;
 }
-/*! test first name */
-.pare-enter-active {
+
+/*! pare first name */
+/* .pare-enter-active {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
 .pare-leave-active {
   animation: 0.3s ease-in-out forwards;
-}
-
-/* for global one */
-.v-enter-active {
-  /* transition: all 0.3s ease-in-out; */
-  animation: animateTransition 0.3s ease-in-out forwards;
-}
-.v-leave-active {
-  /* transition: all 0.3s ease-in-out; */
-  animation: animateTransition 0.3s ease-in-out forwards;
-}
-.animate {
-  background-color: #cc00ff !important;
-  animation: animateTransition 0.3s ease-in-out forwards;
-}
+} */
 
 /*button for transition */
 .fade-button-enter-from,
 .fade-button-leave-to {
   opacity: 0;
 }
+.fade-button.enter-to,
+.fade-button.leave-from {
+  opacity: 1;
+}
 .fade-button.v-enter-active {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
 .fade-button.v-leave-active {
   animation: animateTransition 0.3s ease-in-out forwards;
-}
-.fade-button.enter-to,
-.fade-button.leave-from {
-  opacity: 1;
 }
 
 @keyframes animateTransition {
