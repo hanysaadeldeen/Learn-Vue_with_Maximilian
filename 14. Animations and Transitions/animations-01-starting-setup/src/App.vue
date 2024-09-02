@@ -5,11 +5,19 @@
   </div>
 
   <div class="container">
-    <transition>
+    <transition
+      name="pare"
+      @before-enter="beforeEnter"
+      @before-leave="beforeLeave"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @after-leave="afterLeave"
+    >
       <p v-if="paraIsVisible">this si only sometimes visible..</p>
     </transition>
     <button @click="toogleParagraph">Animate</button>
   </div>
+
   <div class="container" mode="out-in ">
     <transition name="fade-button">
       <button @click="toggleUsers(true)" v-if="!usersAreVisible">
@@ -41,6 +49,23 @@ export default {
     };
   },
   methods: {
+    beforeEnter() {
+      console.log('beforeEnter');
+    },
+    beforeLeave() {
+      console.log('beforeLeave');
+    },
+
+    enter(el) {
+      console.log(el);
+      console.log('enter');
+    },
+    afterEnter() {
+      console.log('after Enter');
+    },
+    afterLeave() {
+      console.log('after leave');
+    },
     toogleParagraph() {
       this.paraIsVisible = !this.paraIsVisible;
     },
@@ -71,11 +96,11 @@ body {
   margin: 0;
 }
 /*! test first name */
-.helloP-enter-active {
+.pare-enter-active {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
-.helloP-leave-active {
-  animation: animateTransition 0.3s ease-in-out forwards;
+.pare-leave-active {
+  animation: 0.3s ease-in-out forwards;
 }
 
 /* for global one */
