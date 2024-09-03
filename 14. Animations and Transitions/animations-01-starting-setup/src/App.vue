@@ -1,5 +1,9 @@
 <template>
   <!-- box for style -->
+
+  <div class="container">
+    <user-list></user-list>
+  </div>
   <div class="container">
     <div class="block" :class="{ animate: checkAnimate }"></div>
     <button @click="animateBlock">Animate</button>
@@ -7,6 +11,7 @@
 
   <!-- transition events -->
   <div class="container">
+    <!-- :css="false" -->
     <transition
       name="pare"
       @before-enter="beforeEnter"
@@ -44,7 +49,11 @@
 </template>
 
 <script>
+import userList from './components/ListData.vue';
 export default {
+  components: {
+    userList,
+  },
   data() {
     return {
       dialogIsVisible: false,
@@ -107,7 +116,6 @@ export default {
     toogleParagraph() {
       this.paraIsVisible = !this.paraIsVisible;
     },
-
     toggleUsers(value) {
       this.usersAreVisible = value;
     },

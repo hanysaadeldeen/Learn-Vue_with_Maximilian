@@ -1,6 +1,6 @@
 <template>
   <div v-if="open" class="backdrop" @click="$emit('close')"></div>
-  <transition name="modal">
+  <transition name="modal" :css="false">
     <dialog open v-if="open">
       <slot></slot>
     </dialog>
