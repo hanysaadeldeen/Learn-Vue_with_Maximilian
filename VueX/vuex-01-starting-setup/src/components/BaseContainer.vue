@@ -2,6 +2,7 @@
   <section>
     <h2>{{ title }}</h2>
     <slot></slot>
+    <button @click="this.$store.commit('increment')">Add one</button>
   </section>
 </template>
 

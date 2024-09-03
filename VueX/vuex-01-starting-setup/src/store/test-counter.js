@@ -11,6 +11,9 @@ const store = createStore({
     increment(state) {
       state.count++;
     },
+    increase(state, payload) {
+      state.count += payload.value;
+    },
   },
 });
 export default store;

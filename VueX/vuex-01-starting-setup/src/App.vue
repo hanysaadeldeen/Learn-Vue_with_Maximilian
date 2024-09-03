@@ -2,7 +2,16 @@
   <base-container title="Vuex"></base-container>
   <section>
     <h2>counter: {{ this.$store.state.count }}</h2>
-    <button @click="increment">Increment</button>
+    <!-- first access to mutations methods -->
+    <button @click="this.$store.commit('increment')">Increment</button>
+    <!-- first way to passing data to mutations -->
+    <button @click="this.$store.commit('increase', { value: 20 })">
+      Increment 20
+    </button>
+    <!-- another way  -->
+    <button @click="this.$store.commit({ type: 'increase', value: 200 })">
+      Increment 200
+    </button>
   </section>
 </template>
 
@@ -18,12 +27,7 @@ export default {
       count: '',
     };
   },
-  methods: {
-    increment() {
-      this.$store.commit('increment');
-      console.log(this.$store.state.count);
-    },
-  },
+  methods: {},
 };
 </script>
 
