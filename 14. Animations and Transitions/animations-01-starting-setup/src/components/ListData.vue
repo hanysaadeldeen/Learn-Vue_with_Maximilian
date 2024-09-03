@@ -50,11 +50,18 @@ ul li {
 .user-list-enter-active,
 .user-list-leave-active {
   transition: all 1s ease-out;
+  position: absolute;
 }
 
-.user-list-enter-to,
-.user-list-leave-from {
+.user-list-enter-to {
   opacity: 1;
   transform: translateY(0);
+}
+.user-list-leave-from {
+  transform: translatex(40px);
+}
+
+.user-list-move {
+  transition: transform 0.8s ease;
 }
 </style>

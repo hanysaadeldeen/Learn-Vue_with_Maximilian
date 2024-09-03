@@ -1,59 +1,13 @@
 <template>
-  <!-- box for style -->
-
-  <div class="container">
-    <user-list></user-list>
-  </div>
-  <div class="container">
-    <div class="block" :class="{ animate: checkAnimate }"></div>
-    <button @click="animateBlock">Animate</button>
-  </div>
-
-  <!-- transition events -->
-  <div class="container">
-    <!-- :css="false" -->
-    <transition
-      name="pare"
-      @before-enter="beforeEnter"
-      @before-leave="beforeLeave"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @after-leave="afterLeave"
-      @leave="leave"
-      @enter-cancelled="enterCancelled"
-      @leave-cancelled="leaveCancelled"
-    >
-      <p v-if="paraIsVisible">this si only sometimes visible..</p>
+  <router-view v-slot="slotProps" mode="out-in">
+    <transition name="fade">
+      <component :is="slotProps.Component" />
     </transition>
-    <button @click="toogleParagraph">Animate</button>
-  </div>
-
-  <!-- buttons -->
-  <div class="container" mode="out-in ">
-    <transition name="fade-button">
-      <button @click="toggleUsers(true)" v-if="!usersAreVisible">
-        Show Users
-      </button>
-      <button @click="toggleUsers(false)" v-else>Hide Users</button>
-    </transition>
-  </div>
-
-  <!-- for dialog -->
-  <base-modal @close="hideDialog" :open="dialogIsVisible">
-    <p>This is a test dialog!</p>
-    <button @click="hideDialog()">Close it!</button>
-  </base-modal>
-  <div class="container">
-    <button @click="showDialog()">Show Dialog</button>
-  </div>
+  </router-view>
 </template>
 
 <script>
-import userList from './components/ListData.vue';
 export default {
-  components: {
-    userList,
-  },
   data() {
     return {
       dialogIsVisible: false,
@@ -142,31 +96,40 @@ html {
 body {
   margin: 0;
 }
-
-/*! pare first name */
-/* .pare-enter-active {
-  animation: animateTransition 0.3s ease-in-out forwards;
+/* .route.enter-from {
 }
-.pare-leave-active {
-  animation: 0.3s ease-in-out forwards;
+.route.enter-to {
 } */
+.fade-enter-active {
+  animation: leaveEnter 0.8s ease-out;
+}
+.fade-leave-active {
+  animation: leaveEnter 0.8s ease-in;
+}
 
 /*button for transition */
 .fade-button-enter-from,
 .fade-button-leave-to {
   opacity: 0;
 }
-.fade-button.enter-to,
-.fade-button.leave-from {
+.fade-button-enter-to,
+.fade-button-leave-from {
   opacity: 1;
 }
-.fade-button.v-enter-active {
+.fade-button-v-enter-active {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
-.fade-button.v-leave-active {
+.fade-button-v-leave-active {
   animation: animateTransition 0.3s ease-in-out forwards;
 }
-
+@keyframes leaveEnter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes animateTransition {
   0% {
     transform: scale(1) rotate(1deg);
