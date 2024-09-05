@@ -15,7 +15,9 @@
     </div>
     <h1>Get value of Getters with mapGetters {{ IncreaseWithFixed }}</h1>
 
-    <!-- <h1>Pass value to Getters:{{ this.$store.getters.GetArgument(89) }}</h1> -->
+    <h1>
+      Pass value to Getters:{{ this.$store.getters['counter/GetArgument'](89) }}
+    </h1>
     <h1>Pass value to Getters:{{ PassValueToGettrs(900) }}</h1>
   </div>
 </template>
