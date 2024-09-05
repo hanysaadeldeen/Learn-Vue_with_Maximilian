@@ -2,17 +2,21 @@
   <section>
     <h2>{{ title }}</h2>
     <slot></slot>
-    <button @click="this.$store.commit('increment')">Add one</button>
+    <the-increment></the-increment>
+    <start-actions></start-actions>
   </section>
 </template>
 
 <script>
+import StartActions from './StartActions.vue';
+import TheIncrement from './TheIncrement.vue';
 export default {
+  components: { TheIncrement, StartActions },
   props: ['title'],
 };
 </script>
 
-<style>
+<style scoped>
 section {
   max-width: 30rem;
   margin: 2rem auto;

@@ -5,10 +5,7 @@ const store = createStore({
   state() {
     return {
       count: 0,
-      todos: [
-        { id: 1, text: '...', done: true },
-        { id: 2, text: '...', done: false },
-      ],
+      isLogin: false,
     };
   },
   mutations: {
@@ -18,13 +15,20 @@ const store = createStore({
     increase(state, payload) {
       state.count += payload.value;
     },
+    updateLogin(state) {
+      state.isLogin = !state.isLogin;
+    },
+    updateCount(state, newCount) {
+      state.count = newCount;
+    },
   },
   getters: {
-    doneTodos(state) {
-      return state.todos.filter((todo) => todo.done);
+    Addtwohundred: (state) => (amount) => {
+      return state.count + amount;
     },
-    Addtwohundred: (state) => {
-      return (state.count += 2000);
+
+    userIsAuthenticated(state) {
+      return state.isLogin;
     },
   },
   actions: {
@@ -32,6 +36,12 @@ const store = createStore({
       setTimeout(() => {
         commit('increment');
       }, 2000);
+    },
+    increase({ commit }, payload) {
+      commit('increase', payload);
+    },
+    updateLogin({ commit }) {
+      commit('updateLogin');
     },
   },
 });
