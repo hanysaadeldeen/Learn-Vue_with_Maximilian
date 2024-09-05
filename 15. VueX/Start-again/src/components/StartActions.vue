@@ -15,9 +15,9 @@ import { mapActions } from 'vuex';
 export default {
   methods: {
     TriggerAction() {
-      this.$store.dispatch('increase');
+      this.$store.dispatch('counter/increase', 5656);
     },
-    ...mapActions(['increase', 'PromiseActions']),
+    ...mapActions('counter', ['increase', 'PromiseActions']),
     increaseeee() {
       this.increase(800);
     },

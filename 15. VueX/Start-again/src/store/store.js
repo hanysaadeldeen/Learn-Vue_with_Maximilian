@@ -1,5 +1,7 @@
 import { createStore } from 'vuex';
-const store = createStore({
+
+const counterModules = {
+  namespaced: true,
   state() {
     return {
       count: 0,
@@ -35,6 +37,11 @@ const store = createStore({
         commit('TestActionWithMutations');
       }, 2000);
     },
+  },
+};
+const store = createStore({
+  modules: {
+    counter: counterModules,
   },
 });
 
