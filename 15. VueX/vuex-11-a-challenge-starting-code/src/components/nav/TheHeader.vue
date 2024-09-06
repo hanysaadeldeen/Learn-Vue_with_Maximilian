@@ -18,8 +18,12 @@
       </ul>
     </nav>
     <div>
-      <button v-if="!isLoggedIn" @click="login">Login</button>
-      <button v-if="isLoggedIn" @click="logout">Logout</button>
+      <button v-if="!isLoggedIn" @click="this.$store.commit('login')">
+        Login
+      </button>
+      <button v-if="isLoggedIn" @click="this.$store.commit('logout')">
+        Logout
+      </button>
     </div>
   </header>
 </template>
@@ -27,6 +31,16 @@
 <script>
 export default {
   inject: ['isLoggedIn', 'login', 'logout', 'cart'],
+  data() {
+    return {
+      cart: this.$store.state.product.cart,
+    };
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
+  },
 };
 </script>
 
