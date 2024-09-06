@@ -1,11 +1,16 @@
 export default {
-  addProductToCart(state, productData) {
+  addProductToCart(state, payload) {
+    const productData = payload;
+
     const productInCartIndex = state.cart.items.findIndex(
       (ci) => ci.productId === productData.id
     );
+
     if (productInCartIndex >= 0) {
+      // Product already exists in the cart, increase quantity
       state.cart.items[productInCartIndex].qty++;
     } else {
+      // Product not in cart, add as a new item
       const newItem = {
         productId: productData.id,
         title: productData.title,
@@ -15,11 +20,14 @@ export default {
       };
       state.cart.items.push(newItem);
     }
+
+    // Update total quantity and price
     state.cart.qty++;
     state.cart.total += productData.price;
   },
 
-  removeProductFromCart(state, prodId) {
+  removeProductFromCart(state, payload) {
+    const prodId = payload;
     const productInCartIndex = state.cart.items.findIndex(
       (cartItem) => cartItem.productId === prodId
     );

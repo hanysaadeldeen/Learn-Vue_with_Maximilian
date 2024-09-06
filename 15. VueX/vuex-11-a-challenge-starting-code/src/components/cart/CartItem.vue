@@ -23,16 +23,15 @@
 
 <script>
 export default {
-  inject: ['removeProductFromCart'],
   props: ['prodId', 'title', 'image', 'price', 'qty'],
   computed: {
     itemTotal() {
-      return (this.price * this.qty).toFixed(2);
+      return this.$store.getters['cart/itemTotal'];
     },
   },
   methods: {
     remove() {
-      this.$store.commit('product/removeProductFromCart', this.prodId);
+      this.$store.dispatch('cart/removeProductFromCart', this.prodId);
     },
   },
 };

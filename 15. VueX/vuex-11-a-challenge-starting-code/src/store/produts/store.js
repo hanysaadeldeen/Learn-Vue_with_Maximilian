@@ -1,5 +1,3 @@
-import ControlProduct from './mutations';
-
 const ProductsStore = {
   namespaced: true,
   state() {
@@ -32,9 +30,7 @@ const ProductsStore = {
           price: 6.99,
         },
       ],
-      cart: { items: [], total: 0, qty: 0 },
     };
   },
-  mutations: ControlProduct,
 };
 export default ProductsStore;

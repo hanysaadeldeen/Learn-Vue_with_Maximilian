@@ -30,10 +30,9 @@
 
 <script>
 export default {
-  inject: ['isLoggedIn', 'login', 'logout', 'cart'],
   data() {
     return {
-      cart: this.$store.state.product.cart,
+      cart: this.$store.state.cart.cart,
     };
   },
   computed: {

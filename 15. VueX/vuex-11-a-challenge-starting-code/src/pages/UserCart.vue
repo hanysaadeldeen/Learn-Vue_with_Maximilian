@@ -22,10 +22,9 @@
 import CartItem from '../components/cart/CartItem.vue';
 
 export default {
-  // inject: ['cart'],
   data() {
     return {
-      cart: this.$store.state.product.cart,
+      cart: this.$store.state.cart.cart,
     };
   },
   components: {

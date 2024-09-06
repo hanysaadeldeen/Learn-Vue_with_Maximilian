@@ -1,9 +1,11 @@
 import { createStore } from 'vuex';
 import ProductsStore from './produts/store';
+import cartStore from './cart/store';
 
 const store = createStore({
   modules: {
     product: ProductsStore,
+    cart: cartStore,
   },
   state() {
     return {
@@ -14,8 +16,6 @@ const store = createStore({
   },
   mutations: {
     login(state) {
-      console.log('yes');
-
       state.login = true;
       state.isLoggedIn = true;
     },

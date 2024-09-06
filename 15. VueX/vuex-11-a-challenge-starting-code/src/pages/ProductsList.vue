@@ -18,7 +18,6 @@
 import ProductItem from '../components/products/ProductItem.vue';
 
 export default {
-  // inject: ['products'],
   data() {
     return {
       products: this.$store.state.product.products,
