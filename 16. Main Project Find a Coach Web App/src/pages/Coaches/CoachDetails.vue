@@ -1,8 +1,56 @@
 <template lang="">
-  <router-view></router-view>
-  <div>Details about Coaches</div>
+  <section>
+    <base-card>
+      <h2>{{ FullName }}</h2>
+      <h2>${{ coach.hourlyRate }}</h2>
+    </base-card>
+  </section>
+  <section>
+    <base-card>
+      <header>
+        <h2>Interested? Reach out now!</h2>
+        <base-button mode="outline" link="true" :to="ContactLine"
+          >Contact</base-button
+        >
+      </header>
+      <router-view></router-view>
+    </base-card>
+  </section>
+  <section>
+    <base-card>
+      <base-badge
+        v-for="area in coach.areas"
+        :key="area"
+        :mode="area"
+        :title="area"
+      >
+      </base-badge>
+      <p>{{ coach.description }}</p>
+    </base-card>
+  </section>
 </template>
 <script>
-export default {};
+export default {
+  props: ['id'],
+  data() {
+    return {
+      coach: null,
+    };
+  },
+  created() {
+    this.coach = this.$store.getters['coaches/Coaches'].find(
+      (couch) => couch.id === this.id
+    );
+    console.log(this.$route.path);
+  },
+  computed: {
+    FullName() {
+      return this.coach.firstName + ' ' + this.coach.lastName;
+    },
+    ContactLine() {
+      return this.$route.path + '/' + 'contact';
+    },
+  },
+};
 </script>
-<style lang=""></style>
+<style scoped></style>
