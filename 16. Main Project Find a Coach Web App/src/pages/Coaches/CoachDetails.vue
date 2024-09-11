@@ -9,9 +9,7 @@
     <base-card>
       <header>
         <h2>Interested? Reach out now!</h2>
-        <base-button mode="outline" link="true" :to="ContactLine"
-          >Contact</base-button
-        >
+        <base-button mode="outline" link :to="ContactLine">Contact</base-button>
       </header>
       <router-view></router-view>
     </base-card>

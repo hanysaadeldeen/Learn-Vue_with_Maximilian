@@ -1,10 +1,10 @@
 <template lang="">
-  <section>Filter</section>
+  <the-filter @filter-change="updateFilters"></the-filter>
   <base-card>
     <section>
       <div class="controls">
-        <base-button mode="flate" link="false"> Refresh </base-button>
-        <base-button mode="outline" link="true" :to="'/register'">
+        <base-button mode="flate"> Refresh </base-button>
+        <base-button mode="outline" link :to="'/register'">
           Refresh
         </base-button>
       </div>
@@ -22,12 +22,31 @@ export default {
     CoachesItem,
   },
   data() {
-    return {};
+    return {
+      Coaches: null,
+      filterdCoaches: [],
+    };
+  },
+  created() {
+    this.Coaches = this.$store.getters['coaches/Coaches'];
+  },
+
+  methods: {
+    getDataLog() {
+      console.log(this.Coaches);
+    },
+
+    updateFilters(FilterdValue) {
+      this.filterdCoaches = FilterdValue;
+
+      if (this.filterdCoaches.length !== 0) {
+        this.Coaches = this.Coaches.filter((coach) =>
+          coach.areas.some((area) => this.filterdCoaches.includes(area))
+        );
+      }
+    },
   },
   computed: {
-    Coaches() {
-      return this.$store.getters['coaches/Coaches'];
-    },
     filterCoaches() {
       return this.$store.getters['coaches/coachesList'];
     },

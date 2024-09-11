@@ -8,15 +8,11 @@
       </span>
     </div>
     <div class="actions">
-      <base-button mode="flate" link="true" :to="`/coaches/${coach.id}`">
+      <base-button mode="flate" link :to="`/coaches/${coach.id}`">
         View Details
       </base-button>
 
-      <base-button
-        mode="outline"
-        link="true"
-        :to="`/coaches/${coach.id}/contact`"
-      >
+      <base-button mode="outline" link :to="`/coaches/${coach.id}/contact`">
         Contact
       </base-button>
     </div>
