@@ -1,5 +1,5 @@
-export const getters = {
-  allCoaches(state) {
-    return state;
+export default {
+  AllRequest(state) {
+    return state.requestsList;
   },
 };

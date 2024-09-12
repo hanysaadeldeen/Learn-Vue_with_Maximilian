@@ -1,5 +1,5 @@
 export const mutations = {
-  updateCoaches(state) {
-    return state;
+  addRequest(state, payload) {
+    state.requestsList.unshift(payload);
   },
 };

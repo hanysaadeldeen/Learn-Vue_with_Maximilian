@@ -5,9 +5,7 @@
     </nav>
     <ul>
       <li><router-link to="/coaches">Coaches</router-link></li>
-      <li><router-link to="/register">Register</router-link></li>
-      <!-- <li><router-link to="/coaches/:id">Coaches Details</router-link></li>
-      <li><router-link to="/coaches/:id/contact">contact</router-link></li> -->
+      <li><router-link to="/request">request</router-link></li>
     </ul>
   </header>
 </template>

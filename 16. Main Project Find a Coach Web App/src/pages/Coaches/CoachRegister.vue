@@ -2,9 +2,7 @@
   <section>
     <base-card>
       <h2>Register As A coach Now !</h2>
-      <KeepAlive>
-        <coach-form @AddNew-Coach="SubmitNewCoach"></coach-form>
-      </KeepAlive>
+      <coach-form @AddNew-Coach="SubmitNewCoach"></coach-form>
     </base-card>
   </section>
 </template>
