@@ -39,7 +39,6 @@ export default {
     this.coach = this.$store.getters['coaches/Coaches'].find(
       (couch) => couch.id === this.id
     );
-    console.log(this.$route.path);
   },
   computed: {
     FullName() {

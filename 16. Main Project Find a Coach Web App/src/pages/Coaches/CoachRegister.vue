@@ -1,7 +1,32 @@
-<template lang="">
-  <div>Register</div>
+<template>
+  <section>
+    <base-card>
+      <h2>Register As A coach Now !</h2>
+      <KeepAlive>
+        <coach-form @AddNew-Coach="SubmitNewCoach"></coach-form>
+      </KeepAlive>
+    </base-card>
+  </section>
 </template>
 <script>
-export default {};
+import CoachForm from '../../components/coaches/CoachForm.vue';
+import BaseCard from '../../components/ui/BaseCard.vue';
+
+export default {
+  components: {
+    CoachForm,
+    BaseCard,
+  },
+
+  methods: {
+    SubmitNewCoach(payload) {
+      this.$store.dispatch('coaches/RegisterAsCoach', payload);
+    },
+  },
+};
 </script>
-<style lang=""></style>
+<style scoped>
+section {
+  padding: 20px;
+}
+</style>

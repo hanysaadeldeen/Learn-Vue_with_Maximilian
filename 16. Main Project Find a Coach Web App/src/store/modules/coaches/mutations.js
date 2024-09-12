@@ -1,5 +1,5 @@
 export const mutations = {
-  updateCoaches(state) {
-    return state;
+  registerAsCoach(state, payload) {
+    state.coachesList.unshift(payload);
   },
 };

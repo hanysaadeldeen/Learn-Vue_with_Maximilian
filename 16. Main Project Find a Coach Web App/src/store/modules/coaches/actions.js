@@ -1,5 +1,5 @@
 export const actions = {
-  updateCoaches(state) {
-    return state;
+  RegisterAsCoach({ commit }, payload) {
+    commit('registerAsCoach', payload);
   },
 };

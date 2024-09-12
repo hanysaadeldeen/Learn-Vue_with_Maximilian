@@ -43,7 +43,7 @@ export default {
     };
   },
 
-  emits: [],
+  emits: ['filter-change'],
   methods: {
     getvalue() {
       this.$emit('filter-change', this.GetFilterValue);

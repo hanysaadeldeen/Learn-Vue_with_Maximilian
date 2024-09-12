@@ -1,6 +1,7 @@
 <template lang="">
   <li v-for="coach in Coaches" :key="coach.id">
     <h3>{{ coach.firstName + coach.lastName }}</h3>
+    <h3>${{ coach.hourlyRate }}/hour</h3>
     <h4>{{ coach.rate }}</h4>
     <div>
       <span v-for="area in coach.areas" :key="area">

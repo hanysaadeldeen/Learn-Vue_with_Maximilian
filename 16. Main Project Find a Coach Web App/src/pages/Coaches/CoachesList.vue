@@ -3,13 +3,15 @@
   <base-card>
     <section>
       <div class="controls">
-        <base-button mode="flate"> Refresh </base-button>
-        <base-button mode="outline" link :to="'/register'">
-          Refresh
+        <base-button mode="outline"> Refresh </base-button>
+        <base-button mode="" link :to="'/register'" v-if="!isCoach">
+          Register As Coached
         </base-button>
       </div>
       <ul v-if="hasCoach">
-        <coaches-item :Coaches="Coaches"></coaches-item>
+        <coaches-item
+          :Coaches="filterdCoaches.length > 0 ? filterdCoaches : Coaches"
+        ></coaches-item>
       </ul>
     </section>
   </base-card>
@@ -24,26 +26,22 @@ export default {
   data() {
     return {
       Coaches: null,
+      selectedFilters: [],
       filterdCoaches: [],
     };
   },
   created() {
     this.Coaches = this.$store.getters['coaches/Coaches'];
+    this.$store.getters['coaches/isCoach'];
   },
 
   methods: {
-    getDataLog() {
-      console.log(this.Coaches);
-    },
-
     updateFilters(FilterdValue) {
-      this.filterdCoaches = FilterdValue;
+      this.selectedFilters = FilterdValue;
 
-      if (this.filterdCoaches.length !== 0) {
-        this.Coaches = this.Coaches.filter((coach) =>
-          coach.areas.some((area) => this.filterdCoaches.includes(area))
-        );
-      }
+      this.filterdCoaches = this.Coaches.filter((coach) =>
+        coach.areas.some((area) => this.selectedFilters.includes(area))
+      );
     },
   },
   computed: {
@@ -52,6 +50,9 @@ export default {
     },
     hasCoach() {
       return this.$store.getters['coaches/hasCoaches'];
+    },
+    isCoach() {
+      return this.$store.getters['coaches/isCoach'];
     },
   },
 };
