@@ -1,21 +1,56 @@
 <template lang="">
-  <base-card v-for="request in Requests" :key="request.email">
-    <h2>{{ request.coachId }}</h2>
-    <h2>{{ request.userEmail }}</h2>
-    <h2>{{ request.message }}</h2>
-  </base-card>
+  <section>
+    <base-card v-if="!emptyRequest">
+      <header>
+        <h2>Requests Recieved</h2>
+      </header>
+      <ul>
+        <request-item
+          v-for="request in hasRequest"
+          :key="request.email"
+          :request="request"
+        ></request-item>
+      </ul>
+    </base-card>
+    <h3 v-else>No Request Found</h3>
+  </section>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      Requests: [],
-    };
-  },
+import RequestItem from '../../components/requests/RequestItems.vue';
 
-  created() {
-    this.Requests = this.$store.getters['request/AllRequest'];
+export default {
+  components: {
+    RequestItem,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    hasRequest() {
+      return this.$store.getters['request/AllRequest'];
+    },
+    emptyRequest() {
+      return this.hasRequest.length === 0;
+    },
+  },
+  mounted() {
+    console.log(this.emptyRequest);
   },
 };
 </script>
-<style lang=""></style>
+<style scoped>
+header {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  max-width: 30rem;
+}
+
+h3 {
+  text-align: center;
+}
+</style>
