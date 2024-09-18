@@ -11,9 +11,6 @@
 <script>
 export default {
   props: ['request'],
-  mounted() {
-    console.log(this.request);
-  },
   computed: {
     emailLink() {
       return 'mailto:' + this.request.userEmail;

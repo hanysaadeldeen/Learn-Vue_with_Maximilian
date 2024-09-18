@@ -19,6 +19,7 @@ export default {
   methods: {
     SubmitNewCoach(payload) {
       this.$store.dispatch('coaches/RegisterAsCoach', payload);
+      this.$store.dispatch('request/SpecificIdCoach', payload.id);
     },
   },
 };

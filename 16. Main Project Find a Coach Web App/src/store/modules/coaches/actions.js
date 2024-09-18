@@ -1,5 +1,7 @@
 export const actions = {
-  RegisterAsCoach({ commit }, payload) {
+  RegisterAsCoach({ commit, rootState }, payload) {
     commit('registerAsCoach', payload);
+    // commit('setUserId', payload.id, { root: true });
+    rootState.userId = payload.id;
   },
 };

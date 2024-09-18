@@ -27,14 +27,11 @@ export default {
   },
   computed: {
     hasRequest() {
-      return this.$store.getters['request/AllRequest'];
+      return this.$store.getters['request/GetspecificRquests'];
     },
     emptyRequest() {
-      return this.hasRequest.length === 0;
+      return this.$store.getters['request/GetspecificRquests'].length === 0;
     },
-  },
-  mounted() {
-    console.log(this.emptyRequest);
   },
 };
 </script>

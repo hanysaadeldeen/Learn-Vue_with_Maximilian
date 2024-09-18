@@ -8,4 +8,7 @@ export const actions = {
     };
     commit('addRequest', newRequest);
   },
+  SpecificIdCoach({ commit }, payload) {
+    commit('UpdateCoachId', payload);
+  },
 };
