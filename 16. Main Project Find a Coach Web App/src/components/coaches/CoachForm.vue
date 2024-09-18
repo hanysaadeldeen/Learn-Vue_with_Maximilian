@@ -137,7 +137,6 @@ export default {
         return;
       }
       const formData = {
-        // coachId: this.$store.getters.userId,
         id: new Date().toISOString(),
         firstName: this.firstName,
         lastName: this.lastName,
