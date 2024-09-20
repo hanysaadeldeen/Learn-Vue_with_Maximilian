@@ -1,5 +1,5 @@
 <template lang="">
-  <li v-for="coach in Coaches" :key="coach.id">
+  <li v-for="coach in Coaches[0]" :key="coach.id">
     <h3>{{ coach.firstName + coach.lastName }}</h3>
     <h3>${{ coach.hourlyRate }}/hour</h3>
     <h4>{{ coach.rate }}</h4>
@@ -27,7 +27,9 @@ export default {
       return 'this.Coaches.firstName + this.Coaches.lastName';
     },
   },
-  mounted() {},
+  mounted() {
+    console.log(this.Coaches[0]);
+  },
 };
 </script>
 <style scoped>
