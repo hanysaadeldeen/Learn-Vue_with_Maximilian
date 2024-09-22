@@ -10,7 +10,6 @@
     </div>
     <div class="actions">
       <base-button mode="flate" link :to="`/coaches/${coach.id}`">
-        <!-- <base-button mode="flate" link :to="`/coaches/c5`"> -->
         View Details
       </base-button>
 
@@ -27,9 +26,6 @@ export default {
     ullName() {
       return 'this.Coaches.firstName + this.Coaches.lastName';
     },
-  },
-  mounted() {
-    // console.log(this.Coaches);
   },
 };
 </script>

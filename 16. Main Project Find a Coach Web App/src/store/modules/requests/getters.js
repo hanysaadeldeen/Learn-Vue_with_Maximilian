@@ -1,11 +1,9 @@
 export default {
-  AllRequest(state) {
-    return state.requestsList;
+  GetspecificRquests(state, _, rootGetters) {
+    const coachId = rootGetters.userId;
+    return state.requestsList.filter((request) => request.coachId === coachId);
   },
-
-  GetspecificRquests(state, _, rootState) {
-    const listRequest = state.requestsList;
-    const coachId = rootState.userId;
-    return listRequest.filter((request) => request.coachId === coachId);
+  hasRequests(_, getters) {
+    return getters.GetspecificRquests && getters.GetspecificRquests.length > 0;
   },
 };

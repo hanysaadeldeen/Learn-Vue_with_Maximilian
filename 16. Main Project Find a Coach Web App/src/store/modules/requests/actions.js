@@ -1,8 +1,6 @@
 export const actions = {
   async AddNewRequest({ commit }, payload) {
     const newRequest = {
-      // id: new Date().toISOString(),
-      coachId: payload.coachId,
       userEmail: payload.email,
       message: payload.message,
     };
@@ -11,17 +9,38 @@ export const actions = {
       `https://vue-demo-9ea6e-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`,
       {
         method: 'POST',
-        data: JSON.stringify(newRequest),
+        body: JSON.stringify(newRequest),
       }
     );
     const responseData = await response.json();
-    if (response.ok) {
+    if (!response.ok) {
       return new Error('someThing wrong at sending a request');
     }
     newRequest.id = responseData.name;
     commit('addRequest', newRequest);
   },
-  SpecificIdCoach({ commit }, payload) {
-    commit('UpdateCoachId', payload);
+
+  async fetchAllRequest({ commit, rootGetters }) {
+    const coachId = rootGetters.userId;
+
+    const response = await fetch(
+      `https://vue-demo-9ea6e-default-rtdb.firebaseio.com/requests/${coachId}.json`
+    );
+    const responseData = await response.json();
+    if (!response.ok) {
+      return new Error('someThing weng wrong when fetching request');
+    }
+    const requests = [];
+    for (const key in responseData) {
+      const request = {
+        id: key,
+        coachId: coachId,
+        message: responseData[key].message,
+        userEmail: responseData[key].userEmail,
+      };
+      requests.push(request);
+    }
+
+    commit('setRequest', requests);
   },
 };

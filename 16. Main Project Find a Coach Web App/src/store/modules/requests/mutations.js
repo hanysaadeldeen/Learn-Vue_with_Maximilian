@@ -1,9 +1,8 @@
 export const mutations = {
   addRequest(state, payload) {
-    console.log(payload);
-    // state.requestsList.unshift(payload);
+    state.requestsList.unshift(payload);
   },
-  UpdateCoachId(state, payload) {
-    state.userId = payload;
+  setRequest(state, payload) {
+    state.requestsList = payload;
   },
 };

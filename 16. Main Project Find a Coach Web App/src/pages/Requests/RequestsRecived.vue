@@ -1,18 +1,22 @@
 <template lang="">
   <section>
-    <base-card v-if="!emptyRequest">
+    <base-card v-if="hasRequests">
       <header>
         <h2>Requests Recieved</h2>
       </header>
       <ul>
         <request-item
-          v-for="request in hasRequest"
+          v-for="request in requests"
           :key="request.email"
           :request="request"
         ></request-item>
       </ul>
     </base-card>
-    <h3 v-else>No Request Found</h3>
+    <base-card v-else>
+      <header>
+        <h2>No Requests Recieved</h2>
+      </header>
+    </base-card>
   </section>
 </template>
 <script>
@@ -25,12 +29,20 @@ export default {
   data() {
     return {};
   },
+  created() {
+    this.GetAllRequst();
+  },
+  methods: {
+    GetAllRequst() {
+      return this.$store.dispatch('request/fetchAllRequest');
+    },
+  },
   computed: {
-    hasRequest() {
+    requests() {
       return this.$store.getters['request/GetspecificRquests'];
     },
-    emptyRequest() {
-      return this.$store.getters['request/GetspecificRquests'].length === 0;
+    hasRequests() {
+      return this.$store.getters['request/hasRequests'];
     },
   },
 };
