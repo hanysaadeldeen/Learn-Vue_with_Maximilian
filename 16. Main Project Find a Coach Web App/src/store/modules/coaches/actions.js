@@ -12,6 +12,11 @@ export const actions = {
   },
 
   async loadCoaches(context) {
+    console.log(context);
+
+    if (!context.getters.shouldUpdate) {
+      return;
+    }
     const response = await fetch(
       `https://vue-demo-9ea6e-default-rtdb.firebaseio.com/coaches.json`
     );
@@ -37,5 +42,6 @@ export const actions = {
     }
 
     context.commit('loadAllCoach', coaches);
+    context.commit('setFetchTimestamp');
   },
 };

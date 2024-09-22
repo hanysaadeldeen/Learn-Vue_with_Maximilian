@@ -25,14 +25,15 @@
         </base-button>
       </div>
       <ul v-if="hasCoach">
-        <coaches-item :Coaches="Coaches"></coaches-item>
+        <coaches-item
+          :Coaches="filterdCoaches.length > 0 ? filterdCoaches : Coaches"
+        ></coaches-item>
       </ul>
       <div v-if="!hasCoach && !isLoading">No Coach Found</div>
     </sectionv>
   </base-card>
 </template>
 <script>
-//   :Coaches="filterdCoaches.length > 0 ? filterdCoaches : Coaches"
 import CoachesItem from '../../components/coaches/CoachesItem.vue';
 
 export default {
@@ -41,6 +42,7 @@ export default {
   },
   data() {
     return {
+      Coaches: [],
       selectedFilters: [],
       filterdCoaches: [],
       isLoading: false,
@@ -63,10 +65,14 @@ export default {
       try {
         this.isLoading = true;
         await this.$store.dispatch('coaches/loadCoaches');
+        this.GetCoached();
       } catch (error) {
         this.error = error.message || 'Failed to load data!';
       }
       this.isLoading = false;
+    },
+    GetCoached() {
+      this.Coaches = this.$store.getters['coaches/Coaches'];
     },
     CloseDialog() {
       this.error = null;
@@ -78,9 +84,6 @@ export default {
     },
     isCoach() {
       return this.$store.getters['coaches/isCoach'];
-    },
-    Coaches() {
-      return this.$store.getters['coaches/Coaches'];
     },
   },
 };

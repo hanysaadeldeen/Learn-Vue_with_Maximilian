@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
+      lastfetch: null,
       coachesList: [],
       count: 1,
     };

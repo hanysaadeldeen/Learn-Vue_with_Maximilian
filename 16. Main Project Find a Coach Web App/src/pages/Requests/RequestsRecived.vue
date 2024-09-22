@@ -1,19 +1,30 @@
 <template lang="">
   <section>
-    <base-card v-if="hasRequests">
+    <div v-if="error !== null">
+      <base-dialog
+        @close="CloseDialog"
+        :show="!!error"
+        title="an Error occurred"
+      >
+        <template #header> </template>
+        <div>{{ this.error }}</div>
+      </base-dialog>
+    </div>
+
+    <base-card>
       <header>
         <h2>Requests Recieved</h2>
       </header>
-      <ul>
+      <base-spiner v-if="isLoading"></base-spiner>
+      <ul v-else-if="hasRequests && !isLoading">
         <request-item
           v-for="request in requests"
           :key="request.email"
           :request="request"
-        ></request-item>
+        >
+        </request-item>
       </ul>
-    </base-card>
-    <base-card v-else>
-      <header>
+      <header v-else>
         <h2>No Requests Recieved</h2>
       </header>
     </base-card>
@@ -27,14 +38,23 @@ export default {
     RequestItem,
   },
   data() {
-    return {};
+    return {
+      isLoading: false,
+      error: null,
+    };
   },
   created() {
     this.GetAllRequst();
   },
   methods: {
-    GetAllRequst() {
-      return this.$store.dispatch('request/fetchAllRequest');
+    async GetAllRequst() {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('request/fetchAllRequest');
+      } catch (error) {
+        this.error = `${error}`;
+      }
+      this.isLoading = false;
     },
   },
   computed: {

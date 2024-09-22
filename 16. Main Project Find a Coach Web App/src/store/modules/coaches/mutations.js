@@ -6,4 +6,8 @@ export const mutations = {
   loadAllCoach(state, payload) {
     state.coachesList = payload;
   },
+
+  setFetchTimestamp(state) {
+    state.lastfetch = new Date().getTime();
+  },
 };

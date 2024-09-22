@@ -20,9 +20,12 @@ export const actions = {
     commit('addRequest', newRequest);
   },
 
-  async fetchAllRequest({ commit, rootGetters }) {
-    const coachId = rootGetters.userId;
+  async fetchAllRequest(context) {
+    const coachId = context.rootGetters.userId;
 
+    if (!context.rootGetters['coaches/shouldUpdate']) {
+      return;
+    }
     const response = await fetch(
       `https://vue-demo-9ea6e-default-rtdb.firebaseio.com/requests/${coachId}.json`
     );
@@ -41,6 +44,6 @@ export const actions = {
       requests.push(request);
     }
 
-    commit('setRequest', requests);
+    context.commit('setRequest', requests);
   },
 };
