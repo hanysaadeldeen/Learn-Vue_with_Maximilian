@@ -8,10 +8,10 @@ export const actions = {
         body: JSON.stringify(payload),
       }
     );
-    commit('registerAsCoach', payload);
+    commit('registerAsCoach', { payload, id: userIdGetter });
   },
 
-  async loadCoaches({ commit }) {
+  async loadCoaches(context) {
     const response = await fetch(
       `https://vue-demo-9ea6e-default-rtdb.firebaseio.com/coaches.json`
     );
@@ -19,7 +19,7 @@ export const actions = {
     const responseData = await response.json();
 
     if (!response.ok) {
-      // return;
+      return new Error('some Thing went wrong on fetcing');
     }
 
     const coaches = [];
@@ -31,13 +31,11 @@ export const actions = {
         description: responseData[key].description,
         hourlyRate: responseData[key].hourlyRate,
         areas: responseData[key].areas,
-        id: responseData[key].id,
+        id: key,
       };
       coaches.push(coach);
     }
 
-    console.log(coaches && coaches);
-
-    commit('loadAllCoach', coaches);
+    context.commit('loadAllCoach', coaches);
   },
 };

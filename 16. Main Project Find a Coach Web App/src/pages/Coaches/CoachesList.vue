@@ -3,7 +3,19 @@
 
   <base-card>
     <base-spiner v-if="isLoading"></base-spiner>
-    <sectionv v-if="!isLoading">
+
+    <div v-if="error !== null">
+      <base-dialog
+        @close="CloseDialog"
+        :show="!!error"
+        title="an Error occurred"
+      >
+        <template #header> </template>
+        <div>someThing went wrong Dud</div>
+      </base-dialog>
+    </div>
+
+    <sectionv v-if="!isLoading && error === null">
       <div class="controls">
         <base-button mode="outline" @click="loadDateStore()">
           Refresh
@@ -15,7 +27,7 @@
       <ul v-if="hasCoach">
         <coaches-item :Coaches="Coaches"></coaches-item>
       </ul>
-      <div v-if="!!hasCoach && isLoading">No Coach Found</div>
+      <div v-if="!hasCoach && !isLoading">No Coach Found</div>
     </sectionv>
   </base-card>
 </template>
@@ -29,15 +41,14 @@ export default {
   },
   data() {
     return {
-      Coaches: null,
       selectedFilters: [],
       filterdCoaches: [],
       isLoading: false,
+      error: null,
     };
   },
   created() {
     this.loadDateStore();
-    this.Coaches = this.$store.getters['coaches/Coaches'];
     this.$store.getters['coaches/isCoach'];
   },
 
@@ -49,9 +60,16 @@ export default {
       );
     },
     async loadDateStore() {
-      this.isLoading = true;
-      await this.$store.dispatch('coaches/loadCoaches');
+      try {
+        this.isLoading = true;
+        await this.$store.dispatch('coaches/loadCoaches');
+      } catch (error) {
+        this.error = error.message || 'Failed to load data!';
+      }
       this.isLoading = false;
+    },
+    CloseDialog() {
+      this.error = null;
     },
   },
   computed: {
@@ -60,6 +78,9 @@ export default {
     },
     isCoach() {
       return this.$store.getters['coaches/isCoach'];
+    },
+    Coaches() {
+      return this.$store.getters['coaches/Coaches'];
     },
   },
 };

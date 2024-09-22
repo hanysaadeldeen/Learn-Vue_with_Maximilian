@@ -32,20 +32,30 @@ export default {
   props: ['id'],
   data() {
     return {
-      coach: null,
+      // coach: null,
     };
   },
-  created() {
-    this.coach = this.$store.getters['coaches/Coaches'].find(
-      (couch) => couch.id === this.id
-    );
-  },
+  // mounted() {
+  //   this.getCoach();
+  // },
+  // methods: {
+  //   getCoach() {
+  //     const resData = this.$store.getters['coaches/Coaches'];
+  //     this.coach = resData;
+  //   },
+  // },
   computed: {
     FullName() {
       return this.coach.firstName + ' ' + this.coach.lastName;
     },
     ContactLine() {
       return this.$route.path + '/' + 'contact';
+    },
+    coach() {
+      console.log(this.$store.getters['coaches/Coaches']);
+      return this.$store.getters['coaches/Coaches'].find(
+        (couch) => couch.id === this.id
+      );
     },
   },
 };

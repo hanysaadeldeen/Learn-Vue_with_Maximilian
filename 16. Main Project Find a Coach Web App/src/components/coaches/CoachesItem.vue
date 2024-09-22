@@ -1,5 +1,5 @@
 <template lang="">
-  <li v-for="coach in Coaches[0]" :key="coach.id">
+  <li v-for="coach in Coaches" :key="coach.id">
     <h3>{{ coach.firstName + coach.lastName }}</h3>
     <h3>${{ coach.hourlyRate }}/hour</h3>
     <h4>{{ coach.rate }}</h4>
@@ -10,6 +10,7 @@
     </div>
     <div class="actions">
       <base-button mode="flate" link :to="`/coaches/${coach.id}`">
+        <!-- <base-button mode="flate" link :to="`/coaches/c5`"> -->
         View Details
       </base-button>
 
@@ -28,7 +29,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.Coaches[0]);
+    // console.log(this.Coaches);
   },
 };
 </script>

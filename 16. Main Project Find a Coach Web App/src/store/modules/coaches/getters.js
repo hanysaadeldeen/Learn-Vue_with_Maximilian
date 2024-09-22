@@ -6,8 +6,10 @@ export default {
     return state.coachesList && state.coachesList.length > 0;
   },
   isCoach(_, getters, _2, rootGetters) {
-    const coaches = getters.Coaches;
-    const userId = rootGetters.userId;
-    return coaches.some((coach) => coach.id === userId);
+    // const coaches = getters.Coaches;
+    // const userId = rootGetters.userId;
+
+    return rootGetters.userId !== '';
+    // return coaches.some((coach) => coach.id === userId);
   },
 };

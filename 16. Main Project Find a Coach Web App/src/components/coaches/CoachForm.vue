@@ -137,7 +137,7 @@ export default {
         return;
       }
       const formData = {
-        id: new Date().toISOString(),
+        // id: new Date().toISOString(),
         firstName: this.firstName,
         lastName: this.lastName,
         description: this.description,
