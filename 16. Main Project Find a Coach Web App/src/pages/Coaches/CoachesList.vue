@@ -1,10 +1,9 @@
 <template lang="">
-  <the-filter @filter-change="updateFilters"></the-filter>
+  <div>
+    <the-filter @filter-change="updateFilters"></the-filter>
 
-  <base-card>
-    <base-spiner v-if="isLoading"></base-spiner>
-
-    <div v-if="error !== null">
+    <base-card>
+      <base-spiner v-if="isLoading"></base-spiner>
       <base-dialog
         @close="CloseDialog"
         :show="!!error"
@@ -13,25 +12,25 @@
         <template #header> </template>
         <div>someThing went wrong Dud</div>
       </base-dialog>
-    </div>
 
-    <sectionv v-if="!isLoading && error === null">
-      <div class="controls">
-        <base-button mode="outline" @click="loadDateStore()">
-          Refresh
-        </base-button>
-        <base-button mode="" link :to="'/register'" v-if="!isCoach">
-          Register As Coached
-        </base-button>
-      </div>
-      <ul v-if="hasCoach">
-        <coaches-item
-          :Coaches="filterdCoaches.length > 0 ? filterdCoaches : Coaches"
-        ></coaches-item>
-      </ul>
-      <div v-if="!hasCoach && !isLoading">No Coach Found</div>
-    </sectionv>
-  </base-card>
+      <sectionv v-if="!isLoading && error === null">
+        <div class="controls">
+          <base-button mode="outline" @click="loadDateStore(true)">
+            Refresh
+          </base-button>
+          <base-button mode="" link :to="'/register'" v-if="!isCoach">
+            Register As Coached
+          </base-button>
+        </div>
+        <ul v-if="hasCoach">
+          <coaches-item
+            :Coaches="filterdCoaches.length > 0 ? filterdCoaches : Coaches"
+          ></coaches-item>
+        </ul>
+        <div v-if="!hasCoach && !isLoading">No Coach Found</div>
+      </sectionv>
+    </base-card>
+  </div>
 </template>
 <script>
 import CoachesItem from '../../components/coaches/CoachesItem.vue';
@@ -50,7 +49,7 @@ export default {
     };
   },
   created() {
-    this.loadDateStore();
+    this.loadDateStore(false);
     this.$store.getters['coaches/isCoach'];
   },
 
@@ -61,10 +60,12 @@ export default {
         coach.areas.some((area) => this.selectedFilters.includes(area))
       );
     },
-    async loadDateStore() {
+    async loadDateStore(value) {
       try {
         this.isLoading = true;
-        await this.$store.dispatch('coaches/loadCoaches');
+        await this.$store.dispatch('coaches/loadCoaches', {
+          ForceRefresh: value,
+        });
         this.GetCoached();
       } catch (error) {
         this.error = error.message || 'Failed to load data!';

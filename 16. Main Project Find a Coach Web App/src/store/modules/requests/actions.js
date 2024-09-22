@@ -23,9 +23,6 @@ export const actions = {
   async fetchAllRequest(context) {
     const coachId = context.rootGetters.userId;
 
-    if (!context.rootGetters['coaches/shouldUpdate']) {
-      return;
-    }
     const response = await fetch(
       `https://vue-demo-9ea6e-default-rtdb.firebaseio.com/requests/${coachId}.json`
     );

@@ -11,10 +11,8 @@ export const actions = {
     commit('registerAsCoach', { payload, id: userIdGetter });
   },
 
-  async loadCoaches(context) {
-    console.log(context);
-
-    if (!context.getters.shouldUpdate) {
+  async loadCoaches(context, payload) {
+    if (!payload.ForceRefresh && !context.getters.shouldUpdate) {
       return;
     }
     const response = await fetch(
