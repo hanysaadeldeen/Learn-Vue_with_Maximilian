@@ -43,7 +43,8 @@ export default {
   methods: {
     onSubmit() {
       if (this.email === '' || this.password === '') {
-        return (this.error = 'fill the inputs');
+        this.error = 'fill the inputs';
+        return;
       } else {
         this.error = null;
         console.log(this.email);
