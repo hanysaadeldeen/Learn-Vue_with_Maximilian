@@ -15,6 +15,10 @@
           >
           <router-link to="/login" v-else>Login</router-link>
         </li>
+
+        <li v-if="!isAuthenticated">
+          <base-button @click="logout">Logout</base-button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -25,10 +29,14 @@ export default {
   data() {
     return {};
   },
-  created() {},
   computed: {
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logOut');
     },
   },
 };

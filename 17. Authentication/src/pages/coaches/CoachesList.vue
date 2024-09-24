@@ -17,7 +17,10 @@
             >Refresh</base-button
           >
 
-          <base-button v-if="!isAuthenticated" link to="/login"
+          <base-button
+            v-if="!isAuthenticated"
+            link
+            to="/login?redirect=register"
             >Login</base-button
           >
 

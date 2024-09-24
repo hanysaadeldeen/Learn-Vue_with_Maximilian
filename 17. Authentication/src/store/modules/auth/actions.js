@@ -47,4 +47,8 @@ export default {
       tokenExpiration: responseData.expiresIn,
     });
   },
+
+  async logOut({ commit }) {
+    commit('setLogOut');
+  },
 };

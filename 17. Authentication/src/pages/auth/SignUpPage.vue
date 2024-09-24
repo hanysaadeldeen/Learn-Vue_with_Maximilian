@@ -73,6 +73,7 @@ export default {
             email: this.email,
             password: this.password,
           });
+          this.$router.replace('/login');
         } catch (error) {
           console.log(error);
 

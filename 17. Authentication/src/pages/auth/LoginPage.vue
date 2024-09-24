@@ -58,6 +58,8 @@ export default {
       this.error = null;
     },
     onSubmit() {
+      let redirectUrl = '/' + (this.$route.query.redirect || 'coaches');
+      this.$router.replace(redirectUrl);
       if (
         this.email === '' ||
         !this.email.includes('@') ||
