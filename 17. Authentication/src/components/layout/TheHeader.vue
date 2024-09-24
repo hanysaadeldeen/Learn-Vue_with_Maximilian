@@ -10,7 +10,9 @@
         </li>
 
         <li>
-          <router-link to="/requests" v-if="isLogin">Requests</router-link>
+          <router-link to="/requests" v-if="isAuthenticated"
+            >Requests</router-link
+          >
           <router-link to="/login" v-else>Login</router-link>
         </li>
       </ul>
@@ -25,8 +27,8 @@ export default {
   },
   created() {},
   computed: {
-    isLogin() {
-      return this.$store.getters['userId'];
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
     },
   },
 };
