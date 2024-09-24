@@ -9,14 +9,9 @@ import NotFound from './pages/NotFound.vue';
 import LoginPage from './pages/auth/LoginPage.vue';
 import SignUpPage from './pages/auth/SignUpPage.vue';
 import store from './store/index';
-import { defineAsyncComponent } from 'vue';
 
-const CoachDetail = defineAsyncComponent(() =>
-  import('./pages/coaches/CoachDetail.vue')
-);
-const ContactCoach = defineAsyncComponent(() =>
-  import('./pages/requests/ContactCoach.vue')
-);
+const CoachDetail = () => import('./pages/coaches/CoachDetail.vue');
+const ContactCoach = () => import('./pages/requests/ContactCoach.vue');
 const router = createRouter({
   history: createWebHistory(),
   routes: [

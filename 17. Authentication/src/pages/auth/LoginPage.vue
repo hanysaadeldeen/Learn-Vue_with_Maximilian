@@ -76,8 +76,6 @@ export default {
             password: this.password,
           });
         } catch (error) {
-          console.log(error);
-
           this.error = error.message;
         }
         this.isLoading = false;

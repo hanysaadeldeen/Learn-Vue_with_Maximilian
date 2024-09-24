@@ -75,8 +75,6 @@ export default {
           });
           this.$router.replace('/login');
         } catch (error) {
-          console.log(error);
-
           this.error = error.message;
         }
         this.isLoading = false;
