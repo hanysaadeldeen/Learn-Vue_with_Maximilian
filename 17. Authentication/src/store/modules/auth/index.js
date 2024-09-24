@@ -6,8 +6,8 @@ export default {
   state() {
     return {
       userId: 'c3',
-      isLogin: false,
       token: '',
+      tokenExpiration: '',
     };
   },
 

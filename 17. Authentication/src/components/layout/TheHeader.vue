@@ -26,7 +26,7 @@ export default {
   created() {},
   computed: {
     isLogin() {
-      return this.$store.getters['coaches/coachIsLogin'];
+      return this.$store.getters['userId'];
     },
   },
 };

@@ -1,5 +1,13 @@
 export default {
-  updateToken(state, paylod) {
-    return (state.token = paylod.token);
+  SignUpToken(state, payload) {
+    state.token = payload.token;
+    state.userId = payload.userId;
+    state.tokenExpiration = payload.tokenExpiration;
+  },
+
+  SignInToken(state, payload) {
+    state.token = payload.token;
+    state.userId = payload.userId;
+    state.tokenExpiration = payload.tokenExpiration;
   },
 };

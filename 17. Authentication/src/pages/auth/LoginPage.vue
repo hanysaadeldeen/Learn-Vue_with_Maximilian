@@ -1,15 +1,26 @@
 <template lang="">
   <div class="form-container">
+    <base-dialog
+      :show="!!error"
+      title="An error occurred!"
+      @close="handleError"
+    >
+      <p>{{ error }}</p>
+    </base-dialog>
+    <base-dialog fixed title="Authentication..." :show="isLoading">
+      <base-spinner></base-spinner>
+    </base-dialog>
     <div class="form-box">
       <h2>Login</h2>
       <form @submit.prevent="onSubmit" id="login-form">
         <div class="input-group">
-          <label for="login-email">Useremail</label>
+          <label for="login-email"> E-mail</label>
           <input
             type="email"
             id="login-email"
             name="useremail"
             v-model="email"
+            required
             @focus="toggleError"
           />
         </div>
@@ -25,12 +36,14 @@
           />
         </div>
         <p class="error" v-if="error !== null">{{ error }}</p>
-        <div class="router">
+
+        <div class="router" v-if="!isLoading">
           <base-button> Login</base-button>
           <base-button mode="flat" :link="true" to="/signup"
             >Create Account</base-button
           >
         </div>
+        <base-spinner v-else></base-spinner>
       </form>
     </div>
   </div>
@@ -38,17 +51,34 @@
 <script>
 export default {
   data() {
-    return { email: '', password: '', error: null };
+    return { email: '', password: '', error: null, isLoading: false };
   },
   methods: {
+    handleError() {
+      this.error = null;
+    },
     onSubmit() {
-      if (this.email === '' || this.password === '') {
+      if (
+        this.email === '' ||
+        !this.email.includes('@') ||
+        this.password.length < 6
+      ) {
         this.error = 'fill the inputs';
         return;
       } else {
-        this.error = null;
-        console.log(this.email);
-        console.log(this.password);
+        try {
+          this.error = null;
+          this.isLoading = true;
+          this.$store.dispatch('signIn', {
+            email: this.email,
+            password: this.password,
+          });
+        } catch (error) {
+          console.log(error);
+
+          this.error = error.message;
+        }
+        this.isLoading = false;
       }
     },
     toggleError() {
@@ -85,7 +115,13 @@ export default {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 600px;
+}
+@media (max-width: 700px) {
+  .form-box {
+    margin: 0 30px;
+    width: 100%;
+  }
 }
 
 h2 {
