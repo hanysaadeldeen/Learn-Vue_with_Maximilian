@@ -14,9 +14,10 @@ export default {
   },
 
   async logOut({ commit }) {
-    commit('setLogOut');
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+
+    commit('setLogOut');
   },
 
   async Auth({ commit }, payload) {
