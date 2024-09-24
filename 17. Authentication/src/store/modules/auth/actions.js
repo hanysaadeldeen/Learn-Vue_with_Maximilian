@@ -15,6 +15,8 @@ export default {
 
   async logOut({ commit }) {
     commit('setLogOut');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
   },
 
   async Auth({ commit }, payload) {
@@ -38,11 +40,25 @@ export default {
       return new Error('someThing Went wrong when signIn');
     }
 
+    localStorage.setItem('token', responseData.idToken);
+    localStorage.setItem('userId', responseData.localId);
+
     commit('setUser', {
       email: responseData.email,
       token: responseData.idToken,
       userId: responseData.localId,
       tokenExpiration: responseData.expiresIn,
     });
+  },
+  tryLogIn(context) {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    if (token && userId) {
+      context.commit('setUser', {
+        token,
+        userId,
+        tokenExpiration: null,
+      });
+    }
   },
 };

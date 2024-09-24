@@ -71,6 +71,7 @@ export default {
       },
     };
   },
+
   computed: {
     isCoach() {
       return this.$store.getters['coaches/isCoach'];
