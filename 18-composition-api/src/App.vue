@@ -1,16 +1,29 @@
 <template>
   <section class="container">
     <h2>{{ userName }}</h2>
+    <h3>{{ hanyName }}</h3>
   </section>
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      userName: 'Composition api',
-    };
+  setup() {
+    const Name = ref('composition api');
+    let hanyName = ref('hanyName');
+
+    setTimeout(() => {
+      hanyName.value = 'mohamed';
+    }, 2000);
+
+    return { userName: Name, hanyName };
   },
+  // data() {
+  //   return {
+  //     userName: 'Composition api',
+  //   };
+  // },
 };
 </script>
 
