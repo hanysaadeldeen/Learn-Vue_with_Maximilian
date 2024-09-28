@@ -5,8 +5,8 @@
     <button @click="updateAge('newVal')">update</button>
   </section> -->
   <section class="container">
-    <h2>{{ data2.hanyName }}</h2>
-    <h3>{{ data2.name }}</h3>
+    <h2>{{ hanyName.hanyName }}</h2>
+    <h3>{{ name.name }}</h3>
     <button @click="updateAge('newVal')">update</button>
   </section>
   <section class="container">
@@ -18,39 +18,62 @@
     </h2>
     <button @click="updateMe('Front End Developer')">update Me</button>
   </section>
+  <section class="container">
+    <h2>
+      {{ test1 }}
+    </h2>
+    <h2>
+      {{ test2 }}
+    </h2>
+    <button @click="updateMe('Front End Developer')">update Me</button>
+  </section>
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
+import { ref, reactive, isRef, isReactive, toRefs } from 'vue';
 
 export default {
   setup() {
     // const Name = ref('composition api');
-    // let hanyName = ref('hanyName');
+    let testU = ref('hanyName');
 
     const data2 = reactive({
       name: 'composition-api',
       hanyName: 'hanyName',
     });
 
+    console.log(isRef(testU));
+    console.log(isReactive(data2));
+
+    const toRefUser = toRefs(data2);
+    console.log(toRefUser.name);
+
     const data = ref({
       about: 'aboutMy',
       data: 'hello there ',
     });
-    function updateAge(value) {
-      console.log(data2);
 
+    setTimeout(() => {
+      updateAge('test');
+    }, 2000);
+
+    function updateAge(value) {
       data2.hanyName = value;
     }
 
-    // setTimeout(() => {
-    //   data.value.about = 'aboutYou';
-    //   data.value.data = 'Backend developer';
-    // }, 2000);
     function updateMe(value) {
       data.value.data = value;
     }
-    return { updateAge, data, updateMe, data2 };
+    return {
+      updateAge,
+      data,
+      updateMe,
+      data2,
+      hanyName: data2,
+      name: data2,
+      test1: toRefUser.hanyName,
+      test2: toRefUser.name,
+    };
   },
 };
 </script>
