@@ -1,78 +1,56 @@
 <template>
-  <!-- <section class="container">
-    <h2>{{ userName }}</h2>
-    <h3>{{ hanyName }}</h3>
-    <button @click="updateAge('newVal')">update</button>
-  </section> -->
   <section class="container">
-    <h2>{{ hanyName.hanyName }}</h2>
-    <h3>{{ name.name }}</h3>
-    <button @click="updateAge('newVal')">update</button>
+    <h2>
+      {{ computedWithModel }}
+    </h2>
+    <input type="text" v-model="yourName" placeholder="User Name" />
+    <input type="number" v-model="yourAge" placeholder="User Age" />
   </section>
   <section class="container">
-    <h2>
-      {{ data.about }}
-    </h2>
-    <h2>
-      {{ data.data }}
-    </h2>
-    <button @click="updateMe('Front End Developer')">update Me</button>
-  </section>
-  <section class="container">
-    <h2>
-      {{ test1 }}
-    </h2>
-    <h2>
-      {{ test2 }}
-    </h2>
-    <button @click="updateMe('Front End Developer')">update Me</button>
+    <h1>{{ computedName }}</h1>
+    <div>
+      <input type="text" @input="setFirstName" placeholder="First name" />
+      <input type="text " @input="setLastName" placeholder="last name" />
+    </div>
   </section>
 </template>
 
 <script>
-import { ref, reactive, isRef, isReactive, toRefs } from 'vue';
+import { computed, ref } from 'vue';
 
 export default {
   setup() {
-    // const Name = ref('composition api');
-    let testU = ref('hanyName');
+    const yourAge = ref('');
+    let yourName = ref('');
 
-    const data2 = reactive({
-      name: 'composition-api',
-      hanyName: 'hanyName',
+    const computedWithModel = computed(function () {
+      return yourName.value + ' ' + yourAge.value;
     });
 
-    console.log(isRef(testU));
-    console.log(isReactive(data2));
+    const firstName = ref('');
+    const lastName = ref('');
 
-    const toRefUser = toRefs(data2);
-    console.log(toRefUser.name);
+    function setFirstName(event) {
+      firstName.value = event.target.value;
+    }
 
-    const data = ref({
-      about: 'aboutMy',
-      data: 'hello there ',
+    function setLastName(event) {
+      lastName.value = event.target.value;
+    }
+
+    const computedName = computed(function () {
+      return firstName.value + '' + lastName.value;
     });
 
-    setTimeout(() => {
-      updateAge('test');
-    }, 2000);
-
-    function updateAge(value) {
-      data2.hanyName = value;
-    }
-
-    function updateMe(value) {
-      data.value.data = value;
-    }
     return {
-      updateAge,
-      data,
-      updateMe,
-      data2,
-      hanyName: data2,
-      name: data2,
-      test1: toRefUser.hanyName,
-      test2: toRefUser.name,
+      yourAge,
+      yourName,
+      computedWithModel,
+      setFirstName,
+      setLastName,
+      firstName,
+      lastName,
+      computedName,
     };
   },
 };
