@@ -6,8 +6,11 @@
       :first-Name="firstName"
       :last-Name="lastName"
       :age="age"
-    ></main-user>
-    <button @click="setAge">Change Age</button>
+      @setAge="setAge"
+    >
+      <h2>content of slot</h2>
+    </main-user>
+
     <div>
       <input type="text" placeholder="First Name" v-model="firstName" />
       <input type="text" placeholder="Last Name" ref="lastNameInput" />
@@ -17,7 +20,7 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, provide } from 'vue';
 import mainUser from './components/mainUser';
 export default {
   components: {
@@ -30,6 +33,10 @@ export default {
     const lastNameInput = ref(null);
     const uAge = ref(31);
 
+    provide('message', uAge);
+    // provide: {
+    // home:"mohamed"
+    // },
     // const user = reactive({
     //   name: 'Maximilian',
     //   age: 31,
@@ -46,8 +53,8 @@ export default {
       console.log('New name: ' + newValues[1]);
     });
 
-    function setNewAge() {
-      uAge.value = 33;
+    function setNewAge(value) {
+      uAge.value = value;
     }
 
     function setLastName() {
