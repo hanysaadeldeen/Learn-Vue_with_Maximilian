@@ -1,6 +1,11 @@
 <template>
   <form>
-    <input type="search" @input="search" :value="searchTerm" placeholder="Filter items" />
+    <input
+      type="search"
+      @input="search"
+      :value="searchTerm"
+      placeholder="Filter items"
+    />
   </form>
 </template>
 
@@ -8,11 +13,20 @@
 export default {
   props: ['searchTerm'],
   emits: ['search'],
-  methods: {
-    search(event) {
-      this.$emit('search', event.target.value);
-    },
+  setup(_, context) {
+    function search(event) {
+      context.emit('search', event.target.value);
+    }
+    return {
+      search,
+    };
   },
+
+  // methods: {
+  //   search(event) {
+  //     this.$emit('search', event.target.value);
+  //   },
+  // },
 };
 </script>
 
