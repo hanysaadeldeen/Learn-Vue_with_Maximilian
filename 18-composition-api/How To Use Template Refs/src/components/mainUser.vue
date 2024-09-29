@@ -9,12 +9,18 @@
   <p>{{ message }}</p>
 </template>
 <script>
-import { computed, inject } from 'vue';
+import {
+  computed,
+  inject,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+} from 'vue';
 export default {
   emits: ['setAge'],
   props: ['firstName', 'lastName', 'age'],
   setup(props, context) {
-    console.log(context);
     const message = inject('message');
 
     function setAge() {
@@ -23,6 +29,11 @@ export default {
     const userName = computed(() => {
       return props.firstName + ' ' + props.lastName;
     });
+    onBeforeMount(() => console.log('before mounted'));
+    onMounted(() => console.log('mounted'));
+    onBeforeUpdate(() => console.log('before update'));
+    onUpdated(() => console.log('uptated'));
+
     return {
       userName,
       setAge,
