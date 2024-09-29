@@ -12,7 +12,11 @@
       </div>
       <div>
         <label for="description">Description</label>
-        <textarea rows="5" id="description" v-model="enteredDescription"></textarea>
+        <textarea
+          rows="5"
+          id="description"
+          v-model="enteredDescription"
+        ></textarea>
       </div>
       <button>Add Product</button>
     </form>
