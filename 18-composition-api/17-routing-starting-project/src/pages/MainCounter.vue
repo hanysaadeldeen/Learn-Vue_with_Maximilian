@@ -6,22 +6,36 @@
   </div>
 </template>
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
-  data() {
+  setup() {
+    const store = useStore();
+    const counter = computed(() => store.getters.Get_user);
+    function increment() {
+      store.dispatch('Update_Counter', 50);
+    }
     return {
-      // counter:0
+      counter,
+      increment,
     };
   },
-  computed: {
-    counter() {
-      return this.$store.getters.Get_user;
-    },
-  },
-  methods: {
-    increment() {
-      this.$store.dispatch('Update_Counter', 50); // Dispatch action to update the count
-    },
-  },
+  // data() {
+  //   return {
+  //     // counter:0
+  //   };
+  // },
+  // computed: {
+  //   counter() {
+  //     return this.$store.getters.Get_user;
+  //   },
+  // },
+  // methods: {
+  //   increment() {
+  //     this.$store.dispatch('Update_Counter', 50); // Dispatch action to update the count
+  //   },
+  // },
 };
 </script>
 <style>
