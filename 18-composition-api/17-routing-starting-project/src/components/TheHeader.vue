@@ -8,6 +8,9 @@
         <li>
           <router-link to="/products/add">Add Product</router-link>
         </li>
+        <li>
+          <router-link to="/counter">Main counter</router-link>
+        </li>
       </ul>
     </nav>
   </header>
