@@ -5,16 +5,25 @@
   <section>
     <h2>Add a User</h2>
     <button @click="showAlert">Add User</button>
+    <p>{{ hello }}</p>
   </section>
 </template>
 
 <script>
-import alert from './mixin/aleart';
+import useAlear from './hooks/alert';
 import UserAlert from './UserAlert.vue';
 export default {
   components: {
     UserAlert,
   },
-  mixins: [alert],
+  setup() {
+    const [alertIsVisible, showAlert, hideAlert, hello] = useAlear();
+    return {
+      alertIsVisible,
+      showAlert,
+      hideAlert,
+      hello,
+    };
+  },
 };
 </script>
