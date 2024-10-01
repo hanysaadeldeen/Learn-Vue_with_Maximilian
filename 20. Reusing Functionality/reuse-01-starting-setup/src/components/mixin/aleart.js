@@ -2,6 +2,7 @@ export default {
   data() {
     return {
       alertIsVisible: false,
+      name: 'ahmed mixin',
     };
   },
   methods: {
