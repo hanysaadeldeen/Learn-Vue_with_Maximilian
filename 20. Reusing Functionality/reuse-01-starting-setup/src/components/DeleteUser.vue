@@ -5,10 +5,12 @@
   <section>
     <h2>Delete a User</h2>
     <button @click="showAlert">Delete User</button>
+    <p>{{ hello }}</p>
   </section>
 </template>
 
 <script>
+import { ref } from 'vue';
 import UserAlert from './UserAlert.vue';
 import useAlear from './hooks/alert';
 export default {
@@ -16,7 +18,8 @@ export default {
     UserAlert,
   },
   setup() {
-    const [alertIsVisible, showAlert, hideAlert, hello] = useAlear();
+    const alertTitle = ref('hany mohamed saad');
+    const [alertIsVisible, showAlert, hideAlert, hello] = useAlear(alertTitle);
     return {
       alertIsVisible,
       showAlert,

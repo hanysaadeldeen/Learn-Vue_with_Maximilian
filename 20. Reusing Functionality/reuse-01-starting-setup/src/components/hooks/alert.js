@@ -1,8 +1,8 @@
 import { ref } from 'vue';
 
-function useAlear() {
+function useAlear(value) {
   const alertIsVisible = ref(false);
-  const hello = ref('hello');
+  const hello = ref(value);
   function hideAlert() {
     alertIsVisible.value = false;
   }
