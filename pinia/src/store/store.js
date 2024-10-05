@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
-const useMainStore = defineStore("MainStore", () => {
+const useMainStore = defineStore("test store", () => {
   // state: () => {
   //   return {
   //     count: 0,
@@ -51,7 +51,7 @@ const useMainStore = defineStore("MainStore", () => {
   const name = ref("Hany Mohamed");
   const categories = ref([]);
 
-  const getDoubleCount = computed(() => count.value * 2);
+  const getDoubleCount = ref(count.value * 2);
 
   function increment() {
     count.value++;
