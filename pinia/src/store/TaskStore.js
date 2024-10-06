@@ -1,52 +1,71 @@
 import { defineStore } from "pinia";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 const TaskStore = defineStore("TaskStore", () => {
   const mainTasks = reactive({
-    tasks: [
-      {
-        id: 1,
-        title: "buy some milk",
-        isFav: true,
-      },
-      {
-        id: 2,
-        title: "play Golver",
-        isFav: false,
-      },
-    ],
+    tasks: [],
   });
+  const loading = ref(false);
 
-  function GetAllTasks() {
-    const localTask = JSON.parse(localStorage.getItem("task"));
-    if (localTask) {
-      mainTasks.tasks = localTask;
-    } else {
-      localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
-    }
+  async function GetAllTasks() {
+    loading.value = true;
+    const res = await fetch("http://localhost:3000/tasks");
+    const data = await res.json();
+    mainTasks.tasks = data;
+    loading.value = false;
+    // localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
   }
 
-  function DeleteTask(id) {
-    const task = mainTasks.tasks.filter((task) => task.id !== id);
-    mainTasks.tasks = task;
-    localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
-  }
-  function AddTask(task) {
+  async function AddTask(task) {
     const newTask = {
       id: task.id,
       title: task.title,
       isFav: task.isFav,
     };
-    mainTasks.tasks.push(newTask);
-    localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
+
+    const res = await fetch("http://localhost:3000/tasks", {
+      method: "POST",
+      body: JSON.stringify(newTask),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    GetAllTasks();
   }
 
-  function upgradeFavorite(id) {
-    const task = mainTasks.tasks.find((task) => task.id === id);
-    if (task) {
-      task.isFav = !task.isFav;
+  async function DeleteTask(id) {
+    const res = await fetch("http://localhost:3000/tasks/" + id, {
+      method: "DELETE",
+    });
+    if (!res.ok) {
+      console.error("Failed to update task:", res.status, res.statusText);
+    } else {
+      console.log("Task updated successfully:", await res.json());
     }
-    localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
+    // const task = mainTasks.tasks.filter((task) => task.id !== id);
+    // mainTasks.tasks = task;
+    // localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
+  }
+
+  async function upgradeFavorite(id) {
+    const task = mainTasks.tasks.find((task) => task.id === id);
+    task.isFav = !task.isFav;
+
+    const res = await fetch("http://localhost:3000/tasks/" + id, {
+      method: "PATCH", // Remove the trailing space
+      body: JSON.stringify({ isFav: task.isFav }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // Optionally check if the request was successful
+    if (!res.ok) {
+      console.error("Failed to update task:", res.status, res.statusText);
+    } else {
+      console.log("Task updated successfully:", await res.json());
+    }
+    // localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
   }
 
   return {
@@ -55,6 +74,7 @@ const TaskStore = defineStore("TaskStore", () => {
     DeleteTask,
     AddTask,
     GetAllTasks,
+    loading,
   };
 });
 

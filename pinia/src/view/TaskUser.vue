@@ -6,7 +6,9 @@
     </header>
     <section>
       <h1>ِAll Tasks</h1>
-      <ul class="task-list">
+
+      <h1 v-if="loading">loading.....</h1>
+      <ul class="task-list" v-if="!loading">
         <task-item
           v-for="task in mainTasks.tasks"
           :id="task.id"
@@ -38,7 +40,7 @@ import TaskItem from "../components/TaskItem.vue";
 import { onMounted } from "vue";
 
 const store = TaskStore();
-const { mainTasks } = storeToRefs(store);
+const { mainTasks, loading } = storeToRefs(store);
 const { upgradeFavorite, DeleteTask, GetAllTasks } = store;
 
 function DeleteTasks(id) {
