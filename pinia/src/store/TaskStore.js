@@ -17,6 +17,19 @@ const TaskStore = defineStore("TaskStore", () => {
     ],
   });
 
+  function DeleteTask(id) {
+    const task = mainTasks.tasks.filter((task) => task.id !== id);
+    mainTasks.tasks = task;
+  }
+  function AddTask(task) {
+    const newTask = {
+      id: task.id,
+      title: task.title,
+      isFav: task.isFav,
+    };
+    mainTasks.tasks.push(newTask);
+  }
+
   function upgradeFavorite(id) {
     const task = mainTasks.tasks.find((task) => task.id === id);
     if (task) {
@@ -27,6 +40,8 @@ const TaskStore = defineStore("TaskStore", () => {
   return {
     mainTasks,
     upgradeFavorite,
+    DeleteTask,
+    AddTask,
   };
 });
 

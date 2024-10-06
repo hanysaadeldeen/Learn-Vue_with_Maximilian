@@ -2,32 +2,22 @@
   <div class="task">
     <h3>{{ title }}</h3>
     <div class="icons">
-      <i class="material-icons">delete</i>
+      <i class="material-icons" @click="$emit('DeleteTask', id)">delete</i>
       <i
         class="material-icons"
-        @click="upgradeFavorite(id)"
-        :class="{ favorite: favorite }"
+        @click="$emit('toggleFav', id)"
+        :class="{ favorite: isFavorite }"
+        s
         >favorite</i
       >
     </div>
   </div>
 </template>
-<script>
-import { computed, ref } from "vue";
-import TaskStore from "../store/TaskStore";
-export default {
-  props: ["id", "title"],
-  setup(props) {
-    const id = ref(props.id);
-    const title = ref(props.title);
-    const { upgradeFavorite, mainTasks } = TaskStore();
-    const isCompleted = ref(props.isCompleted);
-    const favorite = computed(
-      () => mainTasks.tasks.find((task) => task.id === id.value)?.isFav
-    );
-    return { id, title, isCompleted, favorite, upgradeFavorite };
-  },
-};
+<script setup>
+import { toRefs } from "vue";
+
+const props = defineProps(["id", "title", "isFavorite"]);
+const { id, title, isFavorite } = toRefs(props);
 </script>
 <style scoped>
 .task {

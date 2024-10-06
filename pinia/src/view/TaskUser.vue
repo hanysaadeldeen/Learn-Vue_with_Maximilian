@@ -13,8 +13,20 @@
           :key="task.id"
           :title="task.title"
           :isFavorite="task.isFav"
+          @toggleFav="toggleFavorite"
+          @DeleteTask="DeleteTasks"
         ></task-item>
       </ul>
+
+      <div
+        v-if="mainTasks.tasks.length === 0"
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        <h1>You don't Have Tasks</h1>
+        <router-link to="/AddTask">
+          <button class="button">Add Task</button>
+        </router-link>
+      </div>
     </section>
   </main>
 </template>
@@ -26,6 +38,15 @@ import TaskItem from "../components/TaskItem.vue";
 
 const store = TaskStore();
 const { mainTasks } = storeToRefs(store);
+const { upgradeFavorite, DeleteTask } = store;
+
+function DeleteTasks(id) {
+  DeleteTask(id);
+  // console.log(id);
+}
+function toggleFavorite(id) {
+  upgradeFavorite(id);
+}
 </script>
 
 <style scoped>
@@ -38,5 +59,14 @@ ul {
 }
 ul li {
   list-style: none;
+}
+button {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin: 10px;
+  background: #000;
+  color: white;
+  cursor: pointer;
 }
 </style>
