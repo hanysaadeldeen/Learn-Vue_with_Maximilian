@@ -1,0 +1,606 @@
+[33mcommit a49afeb90f379e8995d3ef3a6a9254866bd73195[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Oct 6 12:15:34 2024 +0300
+
+    ✨(task):Add new task page
+
+[33mcommit 58c1535f0d64807354bf35c5f0645462841e26f0[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sat Oct 5 21:08:55 2024 +0300
+
+    ♻️(pinia): Update favorite in task project
+
+[33mcommit 92367f106c1448d6f3f164a789f8d6287aa55721[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sat Oct 5 13:19:59 2024 +0300
+
+    ♻ refactor(pinia) Add state, actions and getters in pinia with compisition api
+
+[33mcommit 69fbc0443a148f0fa6093beb05e2da1dcc5cb288[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Oct 4 20:25:55 2024 +0300
+
+    ✨init(pinia):Start project with pinia
+
+[33mcommit ffc622e0075905162e5ed3aa46972743e99195f3[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Oct 2 13:32:21 2024 +0300
+
+    ♻ refactor(Re-using Functionality): with with composition api
+
+[33mcommit 4122f177202da5868c450105a4734d948222685c[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Oct 1 16:07:53 2024 +0300
+
+    ♻ refactor(Re-using Functionality): with with composition api
+
+[33mcommit 2738e4d81fb9fd324f1c09672be2e64ab1a789ce[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Oct 1 15:53:07 2024 +0300
+
+    ♻ refactor(mixin): add global mixins️
+
+[33mcommit 3a502e98f2b4eeaf7d7fe0275e263b2c9075df76[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 30 22:06:24 2024 +0300
+
+    ♻ refactor(reusing functionality): add mixins️
+
+[33mcommit 08e3eb7740ff50225f35be54d2253e5ba6ec5bc4[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 30 17:55:17 2024 +0300
+
+    🎉init(starting project ): Reusing funtionality
+
+[33mcommit cc1db789e3f13d1a3bd629dd3c364f0ff31787b3[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 30 17:50:06 2024 +0300
+
+    ♻ refactor(composition): convert vuex with composition api️
+
+[33mcommit 055ac3961e70242c8dc99d5f1323bf598e4e7d2e[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 30 17:46:03 2024 +0300
+
+    ✨feat(composition): Add vuex
+
+[33mcommit 61671fa24b4bf096be4c881a4736db99445a174f[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 29 19:57:25 2024 +0300
+
+    ♻ refactor(composition):refactor code ️
+
+[33mcommit cf1da746cf55a4eff53cf080c2afcc74027567ea[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 29 18:23:00 2024 +0300
+
+    🎉init(starting project ):using routing inside composition api
+
+[33mcommit a351e4d64bb29c9cdd16f9591ad0d58e00442c35[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 29 18:13:08 2024 +0300
+
+    ✨feat(composition): update all project to composition api
+
+[33mcommit 2f765e5aba00bdd90c443f38c05790dcef7b53ad[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 29 13:23:07 2024 +0300
+
+    🎉init: upgrade project to composition api
+
+[33mcommit 8268ce7c15fec54463e73c2acc50992e33b61d03[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 29 12:03:25 2024 +0300
+
+    ✨feat(composition): using emits and provide/inject
+
+[33mcommit 42cafae2834f9f7220c1cbe36a42119d4a17426f[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 29 11:03:42 2024 +0300
+
+    ✨feat(composition): access data using ref and props
+
+[33mcommit 858542e4ccb11f7692de75fbe631c39fe3f831d7[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sat Sep 28 18:16:24 2024 +0300
+
+    🎉init: problem two at composition api
+
+[33mcommit f4e28f5bfc438eb394ce27f3c8259a9c256dad61[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sat Sep 28 17:16:58 2024 +0300
+
+    ✨feat: add watch to composition api
+
+[33mcommit 0311728acc4170efe078e9cdf2c4233128909b01[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sat Sep 28 16:11:54 2024 +0300
+
+    ✨feat(composition): using computed and ( v-model and  @input) for inputs
+
+[33mcommit 57438751136552b1d2ba8bacd2fc41cdf48ebdda[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sat Sep 28 14:15:33 2024 +0300
+
+    🎉init: problem one at composition api
+
+[33mcommit 80ef280ebe13bf2bbe9a90db172515e498cb589a[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Sep 27 18:05:25 2024 +0300
+
+    ✨feat(composition): Add reactive with ref and upgrade the data with both
+
+[33mcommit cdd5971238bbe41adbd33b46c9d4e03c0f73c2a4[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Sep 27 17:01:07 2024 +0300
+
+    ♻ refactor(composition):start using composition api️
+
+[33mcommit df19e29d80ffdba315f4833a43c56845db6a15bb[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 26 19:34:33 2024 +0300
+
+    🎉init: project setup
+
+[33mcommit ea4a720bc100915d5e431b9bb86f4262df2902ac[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 21:28:27 2024 +0300
+
+    ♻️refactor(optimization):remove defineAsyncComponent from routing
+
+[33mcommit 21d758a930888e976e793f8daf55d7d69d39429f[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 21:19:52 2024 +0300
+
+    ♻️refactor(optimization): using asynchronous component
+
+[33mcommit 8a4b5993982d7fb27728d6c021fc21a020ea535a[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 18:20:58 2024 +0300
+
+    ✨feat(auth):save login user in localStorage
+
+[33mcommit 300e1f73af30c69b44970ec96cf95a6a05911771[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 18:05:23 2024 +0300
+
+    ♻️refactor(auth): upgrade action for logIn and signUp
+
+[33mcommit f71437a53ca1b94d6b74579fa2c632ce8241224e[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 16:00:05 2024 +0300
+
+    ✨feat(auth):Add logOut and  update routing
+
+[33mcommit 7c218c3e8f25181031f68f23da008d8a68b0098f[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 14:05:39 2024 +0300
+
+    ♻️refactor(auth): update header the coach button  with authentication with token
+
+[33mcommit 8e051a838dde9196ccdc8ce67318637de87ea9ee[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 24 13:41:48 2024 +0300
+
+    ✨feat(auth): Add action for signUp and Login With firebase
+
+[33mcommit 371e51df2fb18028b63d5f31f1d859011eb666e2[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 23 14:20:45 2024 +0300
+
+    ♻️refactor(auth): preparing vuex with auth modules
+
+[33mcommit 28a18ecaf10fb787c6a477d51228d0c5e137b804[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 23 13:44:25 2024 +0300
+
+    feat(auth): create login and signup page
+
+[33mcommit fca6ee124ba523711b2cad7874fca95909f12087[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 22 19:58:12 2024 +0300
+
+     ✨ feat(project): complete All project with the latest NotFound page
+
+[33mcommit bb2d750e36d7430b9ac2635592199317d26f3ca6[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 22 19:51:06 2024 +0300
+
+    feat(components) :transition for Error dialog and for All components
+
+[33mcommit e02f61d5e5e6d11847e83f59ef74d7236a713956[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 22 17:58:25 2024 +0300
+
+    feat: adding caching http request
+
+[33mcommit d5b40c67fc19b6311e56e821ab841ccb289d87c9[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 22 15:18:14 2024 +0300
+
+    feat: Get All recived Requst  for user
+
+[33mcommit 37763686af5e9fbe875965f234586c040c81ed1b[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 22 14:05:12 2024 +0300
+
+    fix-bug:get Specific coach page
+
+[33mcommit 4018606e1595a769b572a483b3b96cb26e0ebf0e[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Sep 20 15:25:23 2024 +0300
+
+    feat: add Loading feature when data is fetching
+
+[33mcommit 92c5e6776ddae3195f8ff994d392ba1b19cd4852[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Sep 18 16:21:29 2024 +0300
+
+    feat: add first http request using firebase
+
+[33mcommit 5fd0a55972ae501b97f4fd9de065df0105502cd8[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Sep 18 13:55:48 2024 +0300
+
+    show contact message at Request only to the register coach
+
+[33mcommit 8a2c318821dd304f00335e465af5f06809df8dd0[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 17 18:57:29 2024 +0300
+
+    Add Request coach Message
+
+[33mcommit 3792e5181bdd755a102ca31d18c1e6e2d6e78df7[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 12 19:42:09 2024 +0300
+
+    Add Contact to Coach and make Validation in the contact form
+
+[33mcommit ca71b066d33c7c1109aee4ead6bdd7d282b09e6e[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 12 17:33:07 2024 +0300
+
+    feat: Add Form and Validation to the Form
+
+[33mcommit da59058e01138e934376a90cb6d5f98caa3e92e3[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Sep 11 17:38:03 2024 +0300
+
+    Add filter
+
+[33mcommit 9da68343c83e01d76669406e92fe086d24f69a91[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Sep 11 15:48:25 2024 +0300
+
+    Adding Coach-details page
+
+[33mcommit 1e807ac97a1634883e5674eaaa3513f7830ca1f9[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Sep 11 15:06:05 2024 +0300
+
+    Add more Feature in the project
+
+[33mcommit 91bc264d821af31565988bbe9fe2139a683ea8ff[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Sep 6 11:58:21 2024 +0300
+
+    upgrade the task using another cart modules
+
+[33mcommit 5e3fcd5fb93a092ede2246a3fc5e257ebfe04119[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Sep 6 10:04:11 2024 +0300
+
+    update All project to use Vuex
+
+[33mcommit deae380b9ed584c8792b9c501be68f58efde2214[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 5 22:06:21 2024 +0300
+
+    start Task
+
+[33mcommit bbbde182cdae3f6bce7c04fc6e23afcf79878702[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 5 21:52:02 2024 +0300
+
+    Upgrade the structure of the store
+
+[33mcommit ade48994038246d762ace1f3932a8851f19a2f2b[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 5 19:16:45 2024 +0300
+
+    Add first Module and Change All Access to methods
+
+[33mcommit 20c0e595d147d0936d278e303f7e6c6c955dbdf5[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Sep 5 18:06:22 2024 +0300
+
+    Before useing Modules
+
+[33mcommit 1921df899d1d8a38fa9103894057f28ac9ed9279[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 3 18:28:32 2024 +0300
+
+    Add Action with Async and Mutaitions with Sync
+
+[33mcommit 283cae13bc1c85f589e28dfaf2600fa18ac7bba5[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 3 16:22:10 2024 +0300
+
+    Pass data to mutations method
+
+[33mcommit 2911a9157b3cfc3255e922d420c4c0a20cd99749[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 3 12:59:00 2024 +0300
+
+    start using Vuex
+
+[33mcommit 7cbd290f4637849a054908ce797bfe01bff249dc[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 3 11:11:47 2024 +0300
+
+    Add move to transition-group and animation when Route Changes
+
+[33mcommit b599298e700556d2e5816e377d98a4723e8deaab[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Sep 3 10:33:38 2024 +0300
+
+    Add New List with transition-group
+
+[33mcommit d8ce00066781f2f03227071254fd173e13373ba8[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 22:26:44 2024 +0300
+
+     Building JavaScript Transitions (instead of CSS) and add enter-cancelled and leave-cancelled
+
+[33mcommit 320e599ffb36582574762ed8e2e89ea687b3e704[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 20:17:04 2024 +0300
+
+    Add before-enter, before-leave, enter,after-enter, after-leave
+
+[33mcommit ab149281c054166a66334a3147a3845e7a7287f7[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 19:47:03 2024 +0300
+
+    Add Transitioning Between Multiple Elements
+
+[33mcommit 17d378fc37fd30581d664f58c24cc95aa6e21812[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 18:41:38 2024 +0300
+
+    add name to transition
+
+[33mcommit 6c22075a64d5b6a7cb742b5867f4ccb2631e4935[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 18:31:57 2024 +0300
+
+    add v-enter(to,from,active) and v-leave(to,from,active)
+
+[33mcommit a50fb04c37f1099f757ee0661b9832df0933585f[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 18:26:18 2024 +0300
+
+    start using animation tag
+
+[33mcommit 8707afc67fbde663810b52e50230c26a152199dd[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 15:36:58 2024 +0300
+
+    Add simple animation using pure Css
+
+[33mcommit 03573c747a9101da6d5c0f13545ba4522768e9e9[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 14:43:33 2024 +0300
+
+    add metaData With Auth and upgrade structure folder
+
+[33mcommit c831028ebe4ca1d09fe24f37baf7e35c102aedd0[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Sep 2 14:27:59 2024 +0300
+
+    Add beforeRouteLeave methods
+
+[33mcommit bba2caf04bf76f4dcc40added8b4258f83174dab[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 1 20:43:00 2024 +0300
+
+    Add Navigation Guards
+
+[33mcommit a4ba12e8a06e89d49d0d02a5ff377a80084b84cc[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 1 18:25:58 2024 +0300
+
+    Add query params
+
+[33mcommit 2fed82b84e494080ed18096c84aaabf8ffd6fef1[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 1 16:29:56 2024 +0300
+
+    add Name to the router
+
+[33mcommit e00ccbcb966bb60620205aa44a9ab79b1276b6cd[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 1 16:18:33 2024 +0300
+
+    upgrade code and add nested route
+
+[33mcommit b9eea69bf41e9fddbca0d11c6391bd393b23528e[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Sep 1 11:16:59 2024 +0300
+
+    Add vue router and style navigation
+
+[33mcommit 53747624d9fe32da1f41cc6b76219b4cbf702dfc[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Aug 30 12:41:16 2024 +0300
+
+    handle Error and finish section
+
+[33mcommit 734f38ab0d27f9b4f61a51971e17f6d42b49716c[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Fri Aug 30 10:59:41 2024 +0300
+
+    Start with saving and get data with Firebase
+
+[33mcommit 531ef2635a892f0a5a6b3dbdc6b9957a8ab5345d[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 29 15:49:43 2024 +0300
+
+    using v-model on custom components
+
+[33mcommit 7186bf11f9fed40e7d876c01096b9a453234d9cb[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 29 12:54:15 2024 +0300
+
+    Add Form Controll
+
+[33mcommit 9091ea1d5dd744f218ca5ebefd4b79d0b8eb76fa[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 29 10:57:31 2024 +0300
+
+    Updated Project in a Profissional way
+
+[33mcommit c19331ccdb073144077f8ec51d42bbf54d45e233[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Aug 28 15:39:36 2024 +0300
+
+    Add full Project
+
+[33mcommit b752e4ca43a92b08477478336a46330f7a5ab822[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 27 22:40:50 2024 +0300
+
+    add Learning resourses app project
+
+[33mcommit 0c577173abc639649e739a376878aaa337878f37[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 27 22:36:54 2024 +0300
+
+    Solve Task
+
+[33mcommit 22de75f93ca914cb5c3966c1cdcddc054acc7642[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 27 19:08:00 2024 +0300
+
+    Switching Multiple Components with Dynamic Components
+
+[33mcommit 0cc6d30ce916ad859f7557fb5355d6d82f0f0035[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 27 14:14:05 2024 +0300
+
+    Add Component Communication
+
+[33mcommit 4244229b257094d58216bc22ff5e70209e230e04[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Aug 26 08:29:20 2024 +0300
+
+    props validating and dynamic props
+
+[33mcommit 37eade4615d25b8a6fcf54f9ffa7c445e94d12f9[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Mon Aug 26 07:53:31 2024 +0300
+
+    Add vue project with Cli
+
+[33mcommit b0f2abdca5babba864dea56a4debfff25e85907b[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Aug 25 11:30:46 2024 +0300
+
+    Add components
+
+[33mcommit 415eeb77d2fc3f3561459f639e962d9ac5f333b8[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Aug 25 10:21:07 2024 +0300
+
+    Add Vue lifecycle methods
+
+[33mcommit a36a0324d7b9370287d9a21452bb439be844b918[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 22 17:14:44 2024 +0300
+
+    Finsh monster game
+
+[33mcommit 5d35068da49b810416911dc68b8f4818f07f5b80[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 22 09:33:57 2024 +0300
+
+    control type of Attack at monster game
+
+[33mcommit a59243e2333cac852d42b8e023d3feb7958faa86[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Aug 21 23:27:16 2024 +0300
+
+    use v-if, v-else-if, v-show and v-for
+
+[33mcommit 5c087bd81450ff55466deec0c31db4df96a976ce[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Aug 21 14:22:01 2024 +0300
+
+    Solve the Problem and Finsih section number 2
+
+[33mcommit ad55dcb260c7c72065193983fdb7095185b3bb2c[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Aug 21 10:51:59 2024 +0300
+
+    Add Style with inline and use :class
+
+[33mcommit f800714e7194fb7e683b4ef1ccc6dee707368a7a[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 15 23:09:16 2024 +0300
+
+    Add watcher
+
+[33mcommit e4a51fd7b2c695ed345269bbfe932095df4e9484[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Thu Aug 15 20:56:04 2024 +0300
+
+    add computed properties
+
+[33mcommit 2a42d86a7b0750a3c13ddc8eb487ad61af00a4dc[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Aug 14 11:32:41 2024 +0300
+
+    solve  practice problem for binding
+
+[33mcommit 9891860e6db0402c506f9ca2947be7d4c57b3b2b[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Wed Aug 14 09:44:46 2024 +0300
+
+    from  Event binding to Event Modifires
+
+[33mcommit d589bd1ced4789addaa95f684d7ee02d2a170490[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 13 22:52:36 2024 +0300
+
+    Add Native Event and Event Argument
+
+[33mcommit bde7a7ee423985821dc4344b3f4300e83717fe25[m
+Merge: 7364d0d 4a652a2
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 13 19:16:24 2024 +0300
+
+    Merge branch 'main' of https://github.com/hanysaadeldeen/Learn-Vue_with_Maximilian
+
+[33mcommit 7364d0d5b9c9695661cd37703db4d3e86c90bedf[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Tue Aug 13 19:15:07 2024 +0300
+
+    Add folder for task TIME-TO-PRACTICE
+
+[33mcommit 4a652a21a6b9156076d9e075c3045809bfb11b79[m
+Author: Hany Mohamed <95915723+hanysaadeldeen@users.noreply.github.com>
+Date:   Sun Aug 11 10:37:44 2024 +0300
+
+    Create README.md
+
+[33mcommit 0af5acb79d390eda9fdc162b6a33f841759f11ad[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Aug 11 10:31:45 2024 +0300
+
+    Update Vue Data
+
+[33mcommit 74a5d749432e5928a4ffac8a735060f10cdd692b[m
+Author: HanyMohamed <hsaad9231@gmail.com>
+Date:   Sun Aug 11 09:22:20 2024 +0300
+
+    Learn-Vue-With_Maximilian

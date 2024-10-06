@@ -23,10 +23,10 @@
         style="display: flex; justify-content: center; align-items: center"
       >
         <h1>You don't Have Tasks</h1>
-        <router-link to="/AddTask">
-          <button class="button">Add Task</button>
-        </router-link>
       </div>
+      <router-link to="/AddTask">
+        <button class="button">Add Task</button>
+      </router-link>
     </section>
   </main>
 </template>
@@ -35,10 +35,11 @@
 import { storeToRefs } from "pinia";
 import TaskStore from "../store/TaskStore";
 import TaskItem from "../components/TaskItem.vue";
+import { onMounted } from "vue";
 
 const store = TaskStore();
 const { mainTasks } = storeToRefs(store);
-const { upgradeFavorite, DeleteTask } = store;
+const { upgradeFavorite, DeleteTask, GetAllTasks } = store;
 
 function DeleteTasks(id) {
   DeleteTask(id);
@@ -47,6 +48,9 @@ function DeleteTasks(id) {
 function toggleFavorite(id) {
   upgradeFavorite(id);
 }
+onMounted(() => {
+  GetAllTasks();
+});
 </script>
 
 <style scoped>

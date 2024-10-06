@@ -3,24 +3,49 @@
     <h1>Add Task</h1>
     <form @submit.prevent="submit">
       <input type="text" placeholder="Add title" v-model="title" />
-      <input type="number" placeholder="Add id" v-model="id" />
       <div class="checkboxx">
         <input type="checkbox" id="fav" v-model="checkBox" />
         <label for="fav">Add to Favorite</label>
       </div>
       <button>Submit Task</button>
     </form>
+    <router-link to="/">
+      <button class="back">Back To All</button>
+    </router-link>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
-
-const id = ref("");
+import TaskStore from "../store/TaskStore";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const title = ref("");
 const checkBox = ref(false);
+
+const { AddTask } = TaskStore();
+function submit() {
+  const newTask = {
+    id: new Date().getTime(),
+    title: title.value,
+    isFav: checkBox.value,
+  };
+  AddTask(newTask);
+  router.push("/");
+}
 </script>
 
 <style scoped>
+.back {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin: 10px auto;
+  background: #000;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  text-align: center;
+}
 .container {
   max-width: 400px;
   margin: 50px auto;

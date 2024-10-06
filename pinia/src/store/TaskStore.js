@@ -17,9 +17,19 @@ const TaskStore = defineStore("TaskStore", () => {
     ],
   });
 
+  function GetAllTasks() {
+    const localTask = JSON.parse(localStorage.getItem("task"));
+    if (localTask) {
+      mainTasks.tasks = localTask;
+    } else {
+      localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
+    }
+  }
+
   function DeleteTask(id) {
     const task = mainTasks.tasks.filter((task) => task.id !== id);
     mainTasks.tasks = task;
+    localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
   }
   function AddTask(task) {
     const newTask = {
@@ -28,6 +38,7 @@ const TaskStore = defineStore("TaskStore", () => {
       isFav: task.isFav,
     };
     mainTasks.tasks.push(newTask);
+    localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
   }
 
   function upgradeFavorite(id) {
@@ -35,6 +46,7 @@ const TaskStore = defineStore("TaskStore", () => {
     if (task) {
       task.isFav = !task.isFav;
     }
+    localStorage.setItem("task", JSON.stringify(mainTasks.tasks));
   }
 
   return {
@@ -42,6 +54,7 @@ const TaskStore = defineStore("TaskStore", () => {
     upgradeFavorite,
     DeleteTask,
     AddTask,
+    GetAllTasks,
   };
 });
 
